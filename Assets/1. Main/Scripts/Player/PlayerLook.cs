@@ -32,7 +32,7 @@ namespace Main.Scripts.Player
             inputActions.Player.Disable();
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             RotateToMouse();
         }
@@ -47,17 +47,26 @@ namespace Main.Scripts.Player
             if (mainCamera == null)
                 return;
 
-            Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (Physics.Raycast(ray, out RaycastHit hit, 100f, groundMask))
-            {
-                Vector3 targetPoint = hit.point;
-                Vector3 direction = targetPoint - transform.position;
-                direction.y = 0f;
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
+            System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
 
-                if (direction.sqrMagnitude > 0.01f)
+            foreach (var hit in hits)
+            {
+                int hitLayer = hit.collider.gameObject.layer;
+                if (((1 << hitLayer) & groundMask) != 0)
                 {
-                    Quaternion lookRotation = Quaternion.LookRotation(direction);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10f * Time.deltaTime);
+                    Vector3 targetPoint = hit.point;
+                    Vector3 direction = targetPoint - transform.position;
+                    direction.y = 0f;
+
+                    if (direction.sqrMagnitude > 0.01f)
+                    {
+                        Quaternion lookRotation = Quaternion.LookRotation(direction);
+                        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10f * Time.deltaTime);
+                    }
+
+                    break;
                 }
             }
         }
