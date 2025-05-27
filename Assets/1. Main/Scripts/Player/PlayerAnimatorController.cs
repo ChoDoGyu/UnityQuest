@@ -20,11 +20,9 @@ namespace Main.Scripts.Player
         private void Update()
         {
             Vector3 displacement = transform.position - previousPosition;
-            // Y축 제외한 평면 속도만 사용
             Vector3 horizontal = new Vector3(displacement.x, 0f, displacement.z);
             float currentSpeed = horizontal.magnitude / Time.deltaTime;
 
-            // 부드럽게 보간
             speed = Mathf.Lerp(speed, currentSpeed, Time.deltaTime * smoothing);
             animator.SetFloat("Speed", speed);
 

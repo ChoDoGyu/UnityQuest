@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using Main.Scripts.Core;
+using Main.Scripts.UI;
+using PlayerInputActionsNamespace = PlayerInputActions;
 
 
 namespace Main.Scripts.Player
 {
-    [RequireComponent(typeof(PlayerMovement))]
-    [RequireComponent(typeof(PlayerLook))]
-    [RequireComponent(typeof(PlayerAnimatorController))]
     public class PlayerManager : MonoBehaviour
     {
         public static PlayerManager Instance { get; private set; }
@@ -14,6 +15,9 @@ namespace Main.Scripts.Player
         [SerializeField] private PlayerMovement playerMovement;
         [SerializeField] private PlayerLook playerLook;
         [SerializeField] private PlayerAnimatorController animatorController;
+
+        private PlayerInputActionsNamespace inputActions;
+        private PlayerStat playerStat;
 
         private void Awake()
         {
@@ -29,12 +33,61 @@ namespace Main.Scripts.Player
             playerLook = GetComponent<PlayerLook>();
             animatorController = GetComponent<PlayerAnimatorController>();
 
-            if (playerMovement == null || playerLook == null || animatorController == null)
+            playerStat = new PlayerStat(100, 50);
+        }
+
+        private void OnEnable()
+        {
+            inputActions = new PlayerInputActionsNamespace();
+            inputActions.Player.Enable();
+            inputActions.Player.Move.performed += OnMove;
+            inputActions.Player.Move.canceled += OnMove;
+        }
+
+        private void OnDisable()
+        {
+            inputActions.Player.Move.performed -= OnMove;
+            inputActions.Player.Move.canceled -= OnMove;
+            inputActions.Player.Disable();
+        }
+
+        private void Start()
+        {
+            playerStat.HP.OnValueChanged += GameManager.Instance.UpdateHUD_HP;
+            playerStat.Stamina.OnValueChanged += GameManager.Instance.UpdateHUD_Stamina;
+
+            playerStat.HP.Reset();
+            playerStat.Stamina.Reset();
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current.hKey.wasPressedThisFrame)
+                GameManager.Instance.TakeDamage(10);
+            if (Keyboard.current.jKey.wasPressedThisFrame)
+                GameManager.Instance.UseStamina(5);
+            if (Keyboard.current.kKey.wasPressedThisFrame)
+                GameManager.Instance.RecoverStamina(5);
+
+            if (playerMovement != null && playerLook != null)
             {
-                Debug.LogError("PlayerManager 초기화 실패: 필수 컴포넌트 누락");
+                Vector3 moveDir = playerMovement.CurrentMoveDirection;
+                if (moveDir.sqrMagnitude > 0.01f)
+                {
+                    playerLook.LookInDirection(moveDir);
+                }
             }
         }
 
-        // 이후 필요 시 상태 전달 등만 담당 (ex: 체력 관리, 전투 처리 등)
+        private void OnMove(InputAction.CallbackContext context)
+        {
+            Vector2 input = context.ReadValue<Vector2>();
+            playerMovement.Move(input);
+        }
+
+        // 내부 호출은 여전히 허용
+        public void TakeDamage(float amount) => playerStat.HP.Decrease(amount);
+        public void UseStamina(float amount) => playerStat.Stamina.Decrease(amount);
+        public void RecoverStamina(float amount) => playerStat.Stamina.Increase(amount);
     }
 }
