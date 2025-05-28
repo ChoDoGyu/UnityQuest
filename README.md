@@ -1,44 +1,41 @@
-## ✅ Day 3 주요 작업 완료 내용
+## ✅ Day 4 주요 작업 완료 내용
 
-- Stat 시스템 및 HUD 연동
-- HUD UI 구성 및 연결
-- Debug Console 도입 (F1 키 토글)
-- Manager 구조 리팩토링
-- GameManager 중심 통합 구조 완성
+- 무기 시스템 설계 (WeaponType, IWeapon, WeaponBase)
+- SwordWeapon.cs 기반 근접 공격 기능 구현 (Trigger 충돌 + 데미지 전달)
+- PlayerWeaponManager 도입 및 PlayerManager 연동
+- IDamageable 인터페이스 정의 및 충돌 데미지 분리 구조화
+- 무기 프리팹(Resources 기반) 자동 장착 구조 구현
+- 폴더 구조 및 네임스페이스 정비 (Interfaces, WeaponSystem, Resources/Weapons)
 
-## 📁 프로젝트 폴더 구조 (Day 3 기준)
+## 📁 프로젝트 폴더 구조 (Day 4 기준)
 
 Assets/
 - ├── 1. Main/
 - │   ├── Scripts/
 - │   │   ├── Player/
+- │   │   │   └── WeaponSystem/
 - │   │   ├── Core/
 - │   │   ├── InputSystem/
 - │   │   ├── SceneManagement/
+- │   │   ├── UI/
+- │   │   └── Enemy/
 - │   └── CameraSystem/
 - │   ├── Prefabs/
-- │   ├── Animations/
 - │   ├── Scenes/
-- │   ├── Input/
 - │   ├── Materials/
 - │   └── Settings/
 - ├── 2. External/
 - ├── Packages/
 - └── ProjectSettings/
 
-## 🔧 주요 스크립트 구성 (Day 3 기준)
+## 🔧 주요 스크립트 구성 (Day 4 기준)
 
-- `GameManager`: 모든 시스템 초기화 및 통합 제어, 중앙 허브 역할 수행
-- `InputManager`: Unity Input System 연동 및 Singleton 패턴 구성
-- `UIManager`: HUDView, DebugConsoleView를 종합 관리하는 UI 컨트롤러
-- `HUDView`: HP / Stamina 슬라이더 값 갱신 처리
-- `DebugConsoleView`: F1 키로 활성화, 텍스트 로그 출력
-- `PlayerManager`: 플레이어 모듈 통합 제어 (이동, 회전, 애니메이션, 스탯)
-- `PlayerStat`: 체력/스태미나 관리용 일반 클래스
-- `Stat`: 공통 스탯 클래스 (이벤트 기반 수치 변화 통보)
-- `IStat`: 스탯 인터페이스, SOLID 원칙 일부 적용
-- `PlayerMovement`: Rigidbody 기반 WASD 이동 처리
-- `PlayerLook`: 마우스 기준 회전 처리 (RaycastAll, LateUpdate(), groundMask 사용)
-- `PlayerAnimatorController`: 이동 속도 기반 애니메이션 파라미터 설정
-- `CameraRaycaster`: 카메라 → 플레이어 사이 장애물 감지 후 TransparentObstacle 머티리얼 적용
-- `SceneLoader`: 씬 간 전환 처리, 비동기 로딩 구조 포함
+- `PlayerManager`: 무기 입력 통합 (1~3번 키 → EquipWeapon)
+- `PlayerWeaponManager`: 무기 로드/파괴/장착 로직 전담
+- `WeaponType`: 무기 종류 열거형 (Sword, Bow, Staff)
+- `IWeapon`: 모든 무기의 공통 인터페이스
+- `WeaponBase`: 장착/해제 구조 구현 (추상 메서드 Attack 포함)
+- `SwordWeapon`: WeaponBase 상속, Collider 기반 근접 공격 구현
+- `IDamageable`: 데미지 전달 인터페이스 (적용 대상 확장 가능)
+
+
