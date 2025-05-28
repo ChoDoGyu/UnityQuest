@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Main.Scripts.Core;
 using Main.Scripts.UI;
+using Main.Scripts.Player.WeaponSystem;
 using PlayerInputActionsNamespace = PlayerInputActions;
 
 
@@ -15,6 +16,7 @@ namespace Main.Scripts.Player
         [SerializeField] private PlayerMovement playerMovement;
         [SerializeField] private PlayerLook playerLook;
         [SerializeField] private PlayerAnimatorController animatorController;
+        [SerializeField] private PlayerWeaponManager playerWeaponManager;
 
         private PlayerInputActionsNamespace inputActions;
         private PlayerStat playerStat;
@@ -32,6 +34,7 @@ namespace Main.Scripts.Player
             playerMovement = GetComponent<PlayerMovement>();
             playerLook = GetComponent<PlayerLook>();
             animatorController = GetComponent<PlayerAnimatorController>();
+            playerWeaponManager = GetComponent<PlayerWeaponManager>();
 
             playerStat = new PlayerStat(100, 50);
         }
@@ -62,6 +65,7 @@ namespace Main.Scripts.Player
 
         private void Update()
         {
+            // 테스트 키
             if (Keyboard.current.hKey.wasPressedThisFrame)
                 GameManager.Instance.TakeDamage(10);
             if (Keyboard.current.jKey.wasPressedThisFrame)
@@ -69,6 +73,7 @@ namespace Main.Scripts.Player
             if (Keyboard.current.kKey.wasPressedThisFrame)
                 GameManager.Instance.RecoverStamina(5);
 
+            // 이동 방향에 따라 시선 회전
             if (playerMovement != null && playerLook != null)
             {
                 Vector3 moveDir = playerMovement.CurrentMoveDirection;
@@ -77,6 +82,14 @@ namespace Main.Scripts.Player
                     playerLook.LookInDirection(moveDir);
                 }
             }
+
+            // 무기 교체 입력
+            if (Keyboard.current.digit1Key.wasPressedThisFrame)
+                playerWeaponManager.EquipWeapon(WeaponType.Sword);
+            if (Keyboard.current.digit2Key.wasPressedThisFrame)
+                playerWeaponManager.EquipWeapon(WeaponType.Bow);
+            if (Keyboard.current.digit3Key.wasPressedThisFrame)
+                playerWeaponManager.EquipWeapon(WeaponType.Staff);
         }
 
         private void OnMove(InputAction.CallbackContext context)
