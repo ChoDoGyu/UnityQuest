@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 3068160291303201885}
   - component: {fileID: 7120291975255836662}
   - component: {fileID: 5584788480059173490}
+  - component: {fileID: 2939133226557501903}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -212,6 +213,7 @@ MonoBehaviour:
   playerLook: {fileID: 0}
   animatorController: {fileID: 0}
   playerWeaponManager: {fileID: 0}
+  skillManager: {fileID: 0}
 --- !u!114 &476496764889973773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +265,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHoldPoint: {fileID: 7921614794045170037}
+--- !u!114 &2939133226557501903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2722475778659303689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6770bef0c9e16d84caedc341bdeb0a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equippedSkills:
+  - {fileID: 11400000, guid: af33804ba816a2e4d87a9da17fe4cc8f, type: 2}
 --- !u!1 &3300863672668882468
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Main.Scripts.Data;
+using Main.Scripts.Player.SkillSystem;
+using System;
+using System.Collections.Generic;
 
 namespace Main.Scripts.UI
 {
@@ -34,5 +38,11 @@ namespace Main.Scripts.UI
         public void UpdateStamina(float ratio) => hudView.UpdateStamina(ratio);
         public void ToggleConsole() => debugConsoleView.ToggleConsole();
         public void Log(string msg) => debugConsoleView.Log(msg);
+
+        //스킬 UI 초기화 전달
+        public void InitializeSkillUI(List<SkillData> skills, Action<SkillData> onUse, SkillManager skillManager)
+        {
+            hudView.SetSkillData(skills, onUse, skillManager);
+        }
     }
 }

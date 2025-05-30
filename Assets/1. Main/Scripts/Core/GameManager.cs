@@ -55,6 +55,12 @@ namespace Main.Scripts.Core
                 gameObject.AddComponent<SceneLoader>();
         }
 
+
+        private void Start()
+        {
+            SetupSkillUI();
+        }
+
         public void SetGameState(GameState newState)
         {
             CurrentState = newState;
@@ -71,6 +77,16 @@ namespace Main.Scripts.Core
         public void TakeDamage(float amount) => playerManager.TakeDamage(amount);
         public void UseStamina(float amount) => playerManager.UseStamina(amount);
         public void RecoverStamina(float amount) => playerManager.RecoverStamina(amount);
+
+        //스킬 UI 초기화
+        public void SetupSkillUI()
+        {
+            var skillManager = playerManager.GetSkillManager();
+            var skills = skillManager.GetEquippedSkills();
+
+            // SkillManager를 UI까지 전달
+            uiManager.InitializeSkillUI(skills, skillManager.UseSkill, skillManager);
+        }
     }
 }
 

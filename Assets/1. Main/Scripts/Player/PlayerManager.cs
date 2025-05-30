@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using Main.Scripts.Core;
 using Main.Scripts.UI;
 using Main.Scripts.Player.WeaponSystem;
+using Main.Scripts.Player.SkillSystem;
 using PlayerInputActionsNamespace = PlayerInputActions;
 
 
@@ -17,6 +18,7 @@ namespace Main.Scripts.Player
         [SerializeField] private PlayerLook playerLook;
         [SerializeField] private PlayerAnimatorController animatorController;
         [SerializeField] private PlayerWeaponManager playerWeaponManager;
+        [SerializeField] private SkillManager skillManager;
 
         private PlayerInputActionsNamespace inputActions;
         private PlayerStat playerStat;
@@ -35,6 +37,7 @@ namespace Main.Scripts.Player
             playerLook = GetComponent<PlayerLook>();
             animatorController = GetComponent<PlayerAnimatorController>();
             playerWeaponManager = GetComponent<PlayerWeaponManager>();
+            skillManager = GetComponent<SkillManager>();
 
             playerStat = new PlayerStat(100, 50);
         }
@@ -84,12 +87,12 @@ namespace Main.Scripts.Player
             }
 
             // 무기 교체 입력
-            if (Keyboard.current.digit1Key.wasPressedThisFrame)
-                playerWeaponManager.EquipWeapon(WeaponType.Sword);
-            if (Keyboard.current.digit2Key.wasPressedThisFrame)
-                playerWeaponManager.EquipWeapon(WeaponType.Bow);
-            if (Keyboard.current.digit3Key.wasPressedThisFrame)
-                playerWeaponManager.EquipWeapon(WeaponType.Staff);
+            //if (Keyboard.current.digit1Key.wasPressedThisFrame)
+            //    playerWeaponManager.EquipWeapon(WeaponType.Sword);
+            //if (Keyboard.current.digit2Key.wasPressedThisFrame)
+            //    playerWeaponManager.EquipWeapon(WeaponType.Bow);
+            //if (Keyboard.current.digit3Key.wasPressedThisFrame)
+            //    playerWeaponManager.EquipWeapon(WeaponType.Staff);
         }
 
         private void OnMove(InputAction.CallbackContext context)
@@ -102,5 +105,8 @@ namespace Main.Scripts.Player
         public void TakeDamage(float amount) => playerStat.HP.Decrease(amount);
         public void UseStamina(float amount) => playerStat.Stamina.Decrease(amount);
         public void RecoverStamina(float amount) => playerStat.Stamina.Increase(amount);
+
+        //SkillManager 외부 접근자
+        public SkillManager GetSkillManager() => skillManager;
     }
 }
