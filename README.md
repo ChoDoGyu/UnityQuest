@@ -1,14 +1,17 @@
-## ✅ Day 5 주요 작업 완료 내용
+## ✅ Day 6 주요 작업 완료 내용
 
-- 스킬 시스템 설계 (SkillData [SO], SkillManager)
-- 스킬 HUD UI 구현 및 쿨타임 표시 연동
-- 원거리 무기 구조(BowWeapon.cs) 및 Projectile 발사 구조 도입
-- ObjectPoolManager 범용화 및 투사체 풀 적용
-- 무기 장착 시 Skill 자동 연동 + HUD 갱신
-- PlayerWeaponManager 통합 (WeaponData 기반 장착 구조)
-- 폴더/네임스페이스 구조 정비 (Data, SkillSystem, WeaponSystem, Combat 등)
+- StatType 기반 스탯 구조 통합 (HP, Attack, Stamina, Exp, Level 등)
+- ExpTable 도입 (경험치 요구량 수식 기반)
+- 경험치 획득 → 레벨업 → 스탯 증가까지 통합 처리
+- PlayerStat.ApplyLevelUpBonus() 분리 적용
+- GameManager 중심의 PlayLevelUpEffects(Vector3 pos) 구조 정립
+- FXManager / AudioManager 신규 도입 및 GameManager 통합
+- 레벨업 이펙트 (Hun0FX) 및 사운드 (CasualGameSFX) 에셋 연동
+- 무기 프리팹 구조 통일 (검/활/스태프 Common, Uncommon 6종)
+- WeaponData SO 기반 무기 구조 확립 및 PlayerWeaponManager 통합 적용
+- 플레이어 캐릭터 교체 (UnityChan 적용 및 애니메이션 베이스 세팅 완료)
 
-## 📁 프로젝트 폴더 구조 (Day 5 기준)
+## 📁 프로젝트 폴더 구조 (Day 6 기준)
 
 Assets/
 - ├── 1. Main/
@@ -33,16 +36,17 @@ Assets/
 - ├── Packages/
 - └── ProjectSettings/
 
-## 🔧 주요 스크립트 구성 (Day 5 기준)
+## 🔧 주요 스크립트 구성 (Day 6 기준)
 
-- `SkillData (SO)`: 스킬 정보 보관 (이름, 쿨타임, 발사체, 속도 등)
-- `SkillManager`: 장착된 스킬 관리, 스킬 발동/쿨타임/이벤트 처리
-- `Projectile`: 투사체 이동 및 충돌 처리, 풀 반환 구조 포함
-- `BowWeapon`: WeaponBase 상속, firePoint에서 Projectile 발사
-- `WeaponData (SO)`: 무기 정보와 장착 스킬 연결
-- `PlayerWeaponManager`: 무기 프리팹 로드, 장착 및 스킬 연동 제어
-- `ObjectPoolManager`: 프리팹 기반 풀링 처리 (투사체 포함)
-- `SkillHUD / SkillSlot`: 스킬 UI 표시, 쿨타임 시각화
-- `HUDView / UIManager`: 게임 내 HUD 통합 제어
+- `PlayerStat`: 스탯 통합 관리, 레벨업 시 보너스 적용
+- `ExpTable`: 경험치 요구량 수식 기반 계산
+- `PlayerManager`: 경험치 획득/레벨업/스탯 상승 연계
+- `WeaponBase / MeleeWeapon / RangedWeapon`: 근접/원거리 무기 통합 구조
+- `WeaponData (SO)`: 무기 정보와 프리팹/스킬 연동 데이터화
+- `PlayerWeaponManager`: 무기 장착 및 Skill 자동 연결
+- `FXManager`: 레벨업 이펙트 재생, Pool 없이 Instantiate 방식
+- `AudioManager`: 효과음 재생 전용 매니저, 이름 기반 등록 구조
+- `GameManager`: FX/SFX 재생 포함 통합 중앙 매니저
+- `HUDView / UIManager`: HUD 갱신 대응 (HP, Stamina 등)
 
 
