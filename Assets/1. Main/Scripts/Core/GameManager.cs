@@ -24,6 +24,8 @@ namespace Main.Scripts.Core
         [SerializeField] private InputManager inputManager;
         [SerializeField] private UIManager uiManager;
         [SerializeField] private PlayerManager playerManager;
+        [SerializeField] private FXManager fxManager;
+        [SerializeField] private AudioManager audioManager;
 
         private void Awake()
         {
@@ -50,6 +52,12 @@ namespace Main.Scripts.Core
 
             if (playerManager == null)
                 playerManager = FindObjectOfType<PlayerManager>();
+
+            if (fxManager == null)
+                fxManager = FindObjectOfType<FXManager>();
+
+            if (audioManager == null)
+                audioManager = FindObjectOfType<AudioManager>();
 
             if (SceneLoader.Instance == null)
                 gameObject.AddComponent<SceneLoader>();
@@ -86,6 +94,14 @@ namespace Main.Scripts.Core
 
             // SkillManager를 UI까지 전달
             uiManager.InitializeSkillUI(skills, skillManager.UseSkill, skillManager);
+        }
+
+
+        // 레벨업 효과 호출 (FX + SFX)
+        public void PlayLevelUpEffects(Vector3 position)
+        {
+            fxManager?.PlayEffect("LevelUp", position);
+            audioManager?.PlaySFX("LevelUp");
         }
     }
 }

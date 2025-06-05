@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHoldPoint: {fileID: 7921614794045170037}
+  weaponTypes: 
 --- !u!114 &2939133226557501903
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -49,9 +49,9 @@ namespace Main.Scripts.Player
         }
 
         /// <summary>
-        /// 무기 장착 요청 (WeaponType을 통해 WeaponData + 프리팹 자동 매칭)
+        /// 프리팹 내부에서 WeaponData를 가져오는 혼합 방식
         /// </summary>
-        public void EquipWeapon(WeaponType type, WeaponData data)
+        public void EquipWeapon(WeaponType type)
         {
             if (!weaponPrefabDict.TryGetValue(type, out GameObject prefab))
             {
@@ -68,20 +68,25 @@ namespace Main.Scripts.Player
             // 프리팹 인스턴스화 및 장착
             GameObject weaponGO = Instantiate(prefab, weaponHoldPoint);
             currentWeaponObject = weaponGO;
+
             currentWeapon = weaponGO.GetComponent<IWeapon>();
             if (currentWeapon == null)
             {
-                Debug.LogError("장착한 무기에 IWeapon 인터페이스가 없습니다.");
+                Debug.LogError("IWeapon 인터페이스 없음");
                 return;
             }
 
             currentWeapon.Equip(weaponHoldPoint);
-            currentWeaponData = data;
+
+            // 여기서 WeaponData를 프리팹 내부에서 자동 추출
+            WeaponBase baseWeapon = weaponGO.GetComponent<WeaponBase>();
+            currentWeaponData = baseWeapon?.WeaponData;
 
             // 무기 타입 일치 여부 확인
-            if (currentWeaponData.weaponType != type)
+            if (currentWeaponData == null)
             {
-                Debug.LogWarning($"WeaponData의 타입({currentWeaponData.weaponType})과 요청된 타입({type})이 일치하지 않습니다.");
+                Debug.LogWarning("WeaponData가 프리팹에 없습니다.");
+                return;
             }
 
             //SkillManager에 무기 스킬 반영

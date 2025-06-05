@@ -39,7 +39,7 @@ namespace Main.Scripts.Player
             playerWeaponManager = GetComponent<PlayerWeaponManager>();
             skillManager = GetComponent<SkillManager>();
 
-            playerStat = new PlayerStat(100, 50);
+            playerStat = new PlayerStat();
         }
 
         private void OnEnable()
@@ -59,22 +59,30 @@ namespace Main.Scripts.Player
 
         private void Start()
         {
-            playerStat.HP.OnValueChanged += GameManager.Instance.UpdateHUD_HP;
-            playerStat.Stamina.OnValueChanged += GameManager.Instance.UpdateHUD_Stamina;
-
-            playerStat.HP.Reset();
-            playerStat.Stamina.Reset();
+            // HUD 갱신은 추후 이벤트 연동 방식으로 대체할 수 있음
+            GameManager.Instance.UpdateHUD_HP(playerStat.GetStat(StatType.HP));
+            GameManager.Instance.UpdateHUD_Stamina(playerStat.GetStat(StatType.Stamina));
         }
 
         private void Update()
         {
             // 테스트 키
             if (Keyboard.current.hKey.wasPressedThisFrame)
-                GameManager.Instance.TakeDamage(10);
+            {
+                TakeDamage(10);
+            }
             if (Keyboard.current.jKey.wasPressedThisFrame)
-                GameManager.Instance.UseStamina(5);
+            {
+                UseStamina(5);
+            }
             if (Keyboard.current.kKey.wasPressedThisFrame)
-                GameManager.Instance.RecoverStamina(5);
+            {
+                RecoverStamina(5);
+            }
+            if (Keyboard.current.lKey.wasPressedThisFrame)
+            {
+                GainExp(50); // 경험치 50 획득
+            }
 
             // 이동 방향에 따라 시선 회전
             if (playerMovement != null && playerLook != null)
@@ -101,12 +109,54 @@ namespace Main.Scripts.Player
             playerMovement.Move(input);
         }
 
-        // 내부 호출은 여전히 허용
-        public void TakeDamage(float amount) => playerStat.HP.Decrease(amount);
-        public void UseStamina(float amount) => playerStat.Stamina.Decrease(amount);
-        public void RecoverStamina(float amount) => playerStat.Stamina.Increase(amount);
+        // 데미지/스태미나 조작 함수 → StatType 기반으로 변경
+        public void TakeDamage(float amount)
+        {
+            playerStat.AddStat(StatType.HP, -amount);
+            GameManager.Instance.UpdateHUD_HP(playerStat.GetStat(StatType.HP));
+        }
 
-        //SkillManager 외부 접근자
+        public void UseStamina(float amount)
+        {
+            playerStat.AddStat(StatType.Stamina, -amount);
+            GameManager.Instance.UpdateHUD_Stamina(playerStat.GetStat(StatType.Stamina));
+        }
+
+        public void RecoverStamina(float amount)
+        {
+            playerStat.AddStat(StatType.Stamina, amount);
+            GameManager.Instance.UpdateHUD_Stamina(playerStat.GetStat(StatType.Stamina));
+        }
+
+        public void GainExp(float amount)
+        {
+            playerStat.AddStat(StatType.Exp, amount);
+            float currentExp = playerStat.GetStat(StatType.Exp);
+            float currentLevel = playerStat.GetStat(StatType.Level);
+
+            int requiredExp = Main.Scripts.Data.ExpTable.GetRequiredExp((int)currentLevel);
+
+            // 경험치가 다음 레벨 요구치를 초과하면 레벨업 처리
+            if (currentExp >= requiredExp)
+            {
+                playerStat.AddStat(StatType.Level, 1);
+                playerStat.SetStat(StatType.Exp, currentExp - requiredExp); // 남은 경험치는 유지
+
+                Debug.Log($"레벨업! 현재 레벨: {playerStat.GetStat(StatType.Level)}");
+
+                // 레벨업 시 스탯 증가
+                playerStat.ApplyLevelUpBonus();
+
+                GameManager.Instance.PlayLevelUpEffects(transform.position);
+
+                // HUD 갱신
+                GameManager.Instance.UpdateHUD_HP(playerStat.GetStat(StatType.HP));
+                GameManager.Instance.UpdateHUD_Stamina(playerStat.GetStat(StatType.Stamina));
+
+                // TODO: 이펙트/사운드 재생 추가 예정
+            }
+        }
+
         public SkillManager GetSkillManager() => skillManager;
     }
 }

@@ -1,12 +1,17 @@
 using UnityEngine;
 using Main.Scripts.Interfaces;
+using Main.Scripts.Data;
 
 namespace Main.Scripts.Player.WeaponSystem
 {
     public abstract class WeaponBase : MonoBehaviour, IWeapon
     {
+        [Header("무기 공통 설정")]
         [SerializeField] protected WeaponType weaponType;
         public WeaponType WeaponType => weaponType;
+
+        [SerializeField] protected WeaponData weaponData;
+        public WeaponData WeaponData => weaponData;
 
         protected Transform handTransform;
 
