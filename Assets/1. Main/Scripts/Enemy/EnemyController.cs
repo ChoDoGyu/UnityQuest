@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using Main.Scripts.Interfaces;
+using Main.Scripts.Data;
 
 namespace Main.Scripts.Enemy
 {
