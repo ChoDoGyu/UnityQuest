@@ -852,6 +852,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   statData: {fileID: 11400000, guid: 6250eca70a400bc4586eeaab51351375, type: 2}
+  healthBarPrefab: {fileID: 1862448039656681576, guid: 09def423560980d418e12e98cfb0f9bd,
+    type: 3}
 --- !u!114 &8884465846413259800
 MonoBehaviour:
   m_ObjectHideFlags: 0

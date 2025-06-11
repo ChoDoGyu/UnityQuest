@@ -36,7 +36,11 @@ namespace Main.Scripts.Enemy
         //EnemyStat 연동
         [SerializeField] private EnemyStat statData;
 
-        private void Awake()
+        //체력바 UI 프리팹
+        [SerializeField] private EnemyHealthBar healthBarPrefab;
+        private EnemyHealthBar healthBarInstance;
+
+        protected virtual void Awake()
         {
             agent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
@@ -53,7 +57,7 @@ namespace Main.Scripts.Enemy
             stunnedState = new StunnedState();
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             if (statData != null)
             {
@@ -74,6 +78,16 @@ namespace Main.Scripts.Enemy
 
             // EnemyManager에 등록
             EnemyManager.Instance?.RegisterEnemy(this);
+
+            //체력바 UI 생성
+            if (healthBarPrefab != null)
+            {
+                Transform cam = Camera.main.transform;
+                Vector3 offset = new Vector3(0, 2.0f, 0); // 머리 위로 띄우기
+                healthBarInstance = Instantiate(healthBarPrefab, transform.position + offset, Quaternion.identity);
+                healthBarInstance.Initialize(cam);
+                healthBarInstance.transform.SetParent(transform, worldPositionStays: true);
+            }
         }
 
 
@@ -91,7 +105,7 @@ namespace Main.Scripts.Enemy
             currentState?.EnterState(this);
         }
 
-        public void TakeDamage(float damage)
+        public virtual void TakeDamage(float damage)
         {
             if (isDead) return;
 
@@ -106,6 +120,12 @@ namespace Main.Scripts.Enemy
             {
                 lastState = currentState;
                 TransitionToState(stunnedState);
+            }
+
+            //체력바 UI 갱신
+            if (healthBarInstance != null)
+            {
+                healthBarInstance.UpdateHP(currentHP, statData.maxHP);
             }
         }
 

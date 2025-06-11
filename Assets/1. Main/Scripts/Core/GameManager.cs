@@ -27,6 +27,9 @@ namespace Main.Scripts.Core
         [SerializeField] private FXManager fxManager;
         [SerializeField] private AudioManager audioManager;
 
+        public AudioManager Audio => audioManager;
+        public FXManager FX => fxManager;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
