@@ -5,33 +5,6 @@
 - 모든 몬스터 체력바 UI 연동
 - Animator 상태 전이 오류 해결
 
-## 📁 프로젝트 폴더 구조 (Day 9 기준)
-
-Assets/
-├── 1. Main/
-│   ├── Scripts/
-│   │   ├── Player/
-│   │   │   └── WeaponSystem/
-│   │   │   └── SkillSystem/
-│   │   ├── Data/
-│   │   ├── Core/
-│   │   ├── Combat/
-│   │   ├── InputSystem/
-│   │   ├── SceneManagement/
-│   │   ├── UI/
-│   │   └── Enemy/         ← BossController, RangedEnemyController 등 포함
-│   ├── Prefabs/
-│   │   └── UI/
-│   │       └── EnemyHealthBarUI.prefab
-│   ├── Resources/
-│   │   └── Weapons/
-│   ├── ScriptableObjects/
-│   │   └── Enemy/
-│   │       └── Boss_Dragon.asset
-│   └── Scenes/
-├── 2. External/
-└── ProjectSettings/
-
 ## 🔧 주요 스크립트 구성 (Day 9 기준)
 
 - `BossController`: EnemyController 확장, 보스용 FSM 연동
