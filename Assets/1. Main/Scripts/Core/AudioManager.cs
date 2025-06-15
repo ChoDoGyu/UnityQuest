@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Main.Scripts.Core
 {
@@ -7,6 +8,11 @@ namespace Main.Scripts.Core
     {
         public static AudioManager Instance { get; private set; }
 
+
+        [Header("AudioMixer 연결")]
+        [SerializeField] private AudioMixer audioMixer;
+
+        [Header("효과음 설정")]
         [SerializeField] private AudioSource sfxSource;
         [SerializeField] private List<SoundEntry> sfxEntries = new();
 
@@ -24,6 +30,8 @@ namespace Main.Scripts.Core
             }
         }
 
+
+        //효과음 재생
         public void PlaySFX(string name)
         {
             if (sfxDict.TryGetValue(name, out AudioClip clip))
@@ -34,6 +42,31 @@ namespace Main.Scripts.Core
             {
                 Debug.LogWarning($"SFX '{name}' not found in AudioManager.");
             }
+        }
+
+
+        //AudioMixer 볼륨 설정
+        public void SetMasterVolume(float value)
+        {
+            audioMixer.SetFloat("MasterVolume", Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20);
+        }
+
+        public void SetBGMVolume(float value)
+        {
+            audioMixer.SetFloat("BGMVolume", Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20);
+        }
+
+        public void SetSFXVolume(float value)
+        {
+            audioMixer.SetFloat("SFXVolume", Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20);
+        }
+
+        //AudioMixer 볼륨 가져오기
+        public float GetVolume(string exposedParam)
+        {
+            if (audioMixer.GetFloat(exposedParam, out float dB))
+                return Mathf.Pow(10, dB / 20f);
+            return 1f; // 기본값 1
         }
 
         [System.Serializable]

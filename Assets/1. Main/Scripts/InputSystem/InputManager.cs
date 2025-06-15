@@ -10,7 +10,8 @@ namespace Main.Scripts.InputSystem
         private PlayerInputActions inputActions;
 
         public Vector2 MoveInput { get; private set; }
-        public Vector2 LookInput { get; private set; }
+
+        private bool isPaused = false;
 
         private void Awake()
         {
@@ -29,13 +30,24 @@ namespace Main.Scripts.InputSystem
             BindInputEvents();
         }
 
+        public void SetPaused(bool paused)
+        {
+            isPaused = paused;
+            // 필요 시 여기서 추가적인 입력 비활성화 처리도 가능
+        }
+
         private void BindInputEvents()
         {
-            inputActions.Player.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
-            inputActions.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
-
-            inputActions.Player.Look.performed += ctx => LookInput = ctx.ReadValue<Vector2>();
-            inputActions.Player.Look.canceled += ctx => LookInput = Vector2.zero;
+            inputActions.Player.Move.performed += ctx =>
+            {
+                if (!isPaused)
+                    MoveInput = ctx.ReadValue<Vector2>();
+            };
+            inputActions.Player.Move.canceled += ctx =>
+            {
+                if (!isPaused)
+                    MoveInput = Vector2.zero;
+            };
         }
 
         private void OnDestroy()

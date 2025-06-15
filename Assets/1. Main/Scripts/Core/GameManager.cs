@@ -26,9 +26,11 @@ namespace Main.Scripts.Core
         [SerializeField] private PlayerManager playerManager;
         [SerializeField] private FXManager fxManager;
         [SerializeField] private AudioManager audioManager;
+        [SerializeField] private PauseManager pauseManager;
 
         public AudioManager Audio => audioManager;
         public FXManager FX => fxManager;
+        public PauseManager Pause => pauseManager;
 
         private void Awake()
         {
@@ -64,6 +66,9 @@ namespace Main.Scripts.Core
 
             if (SceneLoader.Instance == null)
                 gameObject.AddComponent<SceneLoader>();
+
+            if (pauseManager == null)
+                pauseManager = FindObjectOfType<PauseManager>();
         }
 
 
