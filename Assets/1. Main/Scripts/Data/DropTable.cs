@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Main.Scripts.Data
 {
-    [CreateAssetMenu(fileName = "NewDropTable", menuName = "Item/DropTable")]
+    [CreateAssetMenu(fileName = "NewDropTable", menuName = "ScriptableObject/Item/DropTable")]
     public class DropTable : ScriptableObject
     {
         [System.Serializable]

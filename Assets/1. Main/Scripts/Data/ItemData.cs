@@ -6,16 +6,18 @@ namespace Main.Scripts.Data
     {
         Gold,
         Potion,
+        Armor,
+        Weapon,
+        Accessory
     }
-    [CreateAssetMenu(fileName = "NewItemData", menuName = "Item/ItemData")]
+
+    [CreateAssetMenu(fileName = "NewItemData", menuName = "ScriptableObject/Item/ItemData")]
     public class ItemData : ScriptableObject
     {
         public string itemName;
         public ItemType itemType;
         public Sprite icon;
-        public GameObject worldPrefab; // 드롭용 Prefab 참조
-
-        [TextArea]
-        public string description;
+        public GameObject worldPrefab;
+        [TextArea] public string description;
     }
 }

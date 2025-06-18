@@ -4,11 +4,12 @@ using Main.Scripts.Player.WeaponSystem;
 
 namespace Main.Scripts.Data
 {
-    [CreateAssetMenu(menuName = "Weapon/WeaponData")]
-    public class WeaponData : ScriptableObject
+    [CreateAssetMenu(menuName = "ScriptableObject/Item/WeaponData")]
+    public class WeaponData : ItemData
     {
         public WeaponType weaponType;
-        public Sprite icon;  // 인벤토리/장비창 아이콘 (선택사항)
         public List<SkillData> equippedSkills;
+
+        public float attackPower;
     }
 }

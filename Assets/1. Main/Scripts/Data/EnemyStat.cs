@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Main.Scripts.Data
 {
-    [CreateAssetMenu(fileName = "EnemyStat", menuName = "Game/EnemyStat")]
+    [CreateAssetMenu(fileName = "EnemyStat", menuName = "ScriptableObject/Game/EnemyStat")]
     public class EnemyStat : ScriptableObject
     {
         public float maxHP = 100f;

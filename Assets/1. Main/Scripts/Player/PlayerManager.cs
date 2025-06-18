@@ -4,6 +4,7 @@ using Main.Scripts.Core;
 using Main.Scripts.UI;
 using Main.Scripts.Player.WeaponSystem;
 using Main.Scripts.Player.SkillSystem;
+using Main.Scripts.Data;
 using PlayerInputActionsNamespace = PlayerInputActions;
 
 
@@ -17,11 +18,16 @@ namespace Main.Scripts.Player
         [SerializeField] private PlayerMovement playerMovement;
         [SerializeField] private PlayerLook playerLook;
         [SerializeField] private PlayerAnimatorController animatorController;
-        [SerializeField] private PlayerWeaponManager playerWeaponManager;
         [SerializeField] private SkillManager skillManager;
+        [SerializeField] private EquipmentManager equipmentManager;
+
+        public EquipmentManager EquipmentManager => equipmentManager;
 
         private PlayerInputActionsNamespace inputActions;
         private PlayerStat playerStat;
+
+        //포션 슬롯 연결
+        [SerializeField] private ItemData equippedPotion;
 
         private void Awake()
         {
@@ -33,13 +39,16 @@ namespace Main.Scripts.Player
 
             Instance = this;
 
+            // 필수 컴포넌트 찾기
             playerMovement = GetComponent<PlayerMovement>();
             playerLook = GetComponent<PlayerLook>();
             animatorController = GetComponent<PlayerAnimatorController>();
-            playerWeaponManager = GetComponent<PlayerWeaponManager>();
             skillManager = GetComponent<SkillManager>();
+            equipmentManager = GetComponent<EquipmentManager>();
 
+            // Stat 생성 & 장비 매니저 연결
             playerStat = new PlayerStat();
+            equipmentManager.SetPlayerStat(playerStat);
         }
 
         private void OnEnable()
@@ -48,12 +57,16 @@ namespace Main.Scripts.Player
             inputActions.Player.Enable();
             inputActions.Player.Move.performed += OnMove;
             inputActions.Player.Move.canceled += OnMove;
+
+            inputActions.Player.Potion.performed += OnUsePotion;
         }
 
         private void OnDisable()
         {
             inputActions.Player.Move.performed -= OnMove;
             inputActions.Player.Move.canceled -= OnMove;
+
+            inputActions.Player.Potion.performed -= OnUsePotion;
             inputActions.Player.Disable();
         }
 
@@ -93,20 +106,36 @@ namespace Main.Scripts.Player
                     playerLook.LookInDirection(moveDir);
                 }
             }
-
-            // 무기 교체 입력
-            //if (Keyboard.current.digit1Key.wasPressedThisFrame)
-            //    playerWeaponManager.EquipWeapon(WeaponType.Sword);
-            //if (Keyboard.current.digit2Key.wasPressedThisFrame)
-            //    playerWeaponManager.EquipWeapon(WeaponType.Bow);
-            //if (Keyboard.current.digit3Key.wasPressedThisFrame)
-            //    playerWeaponManager.EquipWeapon(WeaponType.Staff);
         }
 
         private void OnMove(InputAction.CallbackContext context)
         {
             Vector2 input = context.ReadValue<Vector2>();
             playerMovement.Move(input);
+        }
+
+        private void OnUsePotion(InputAction.CallbackContext context)
+        {
+            if (equippedPotion != null)
+            {
+                Debug.Log($"Q키 포션 사용: {equippedPotion.itemName}");
+                UsePotion(equippedPotion);
+                equippedPotion = null; // 사용 후 슬롯 비움 (필요하다면)
+            }
+        }
+
+        //인벤토리 또는 포션 슬롯에서 호출해서 포션 장착
+        public void SetEquippedPotion(ItemData potion)
+        {
+            equippedPotion = potion;
+        }
+
+        public void UsePotion(ItemData potion)
+        {
+            Debug.Log($"포션 사용: {potion.itemName}");
+            // 예시: HP 회복
+            playerStat.AddStat(StatType.HP, 50); // 예시값
+            GameManager.Instance.UpdateHUD_HP(playerStat.GetStat(StatType.HP));
         }
 
         // 데미지/스태미나 조작 함수 → StatType 기반으로 변경

@@ -31,6 +31,7 @@ namespace Main.Scripts.Core
         public AudioManager Audio => audioManager;
         public FXManager FX => fxManager;
         public PauseManager Pause => pauseManager;
+        public PlayerManager PlayerManager => playerManager;
 
         private void Awake()
         {

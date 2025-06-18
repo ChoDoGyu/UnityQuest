@@ -18,6 +18,14 @@ namespace Main.Scripts.UI
         [SerializeField] private OptionManager optionManager;
         [SerializeField] private GameObject optionMenuUI;
 
+        [Header("Inventory & Equipment")]
+        [SerializeField] private GameObject inventoryPanel;
+        [SerializeField] private GameObject equipmentPanel;
+
+
+        private PlayerInputActions inputActions;
+        private bool isInventoryOpen = false;
+
         public OptionManager Option => optionManager;
 
         private void Awake()
@@ -29,6 +37,20 @@ namespace Main.Scripts.UI
             }
 
             Instance = this;
+
+            inputActions = new PlayerInputActions();
+        }
+
+        private void OnEnable()
+        {
+            inputActions.Enable();
+            inputActions.Player.Inventory.performed += OnToggleInventory;
+        }
+
+        private void OnDisable()
+        {
+            inputActions.Disable();
+            inputActions.Player.Inventory.performed -= OnToggleInventory;
         }
 
         private void Update()
@@ -37,6 +59,18 @@ namespace Main.Scripts.UI
             {
                 ToggleConsole();
             }
+        }
+
+        private void OnToggleInventory(InputAction.CallbackContext ctx)
+        {
+            ToggleInventory();
+        }
+
+        public void ToggleInventory()
+        {
+            isInventoryOpen = !isInventoryOpen;
+            inventoryPanel?.SetActive(isInventoryOpen);
+            equipmentPanel?.SetActive(isInventoryOpen);
         }
 
         public void UpdateHP(float ratio) => hudView.UpdateHP(ratio);

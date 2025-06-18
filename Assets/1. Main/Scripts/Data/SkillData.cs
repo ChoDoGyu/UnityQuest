@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Main.Scripts.Data
 {
     // Unity 에디터에서 생성할 수 있도록 메뉴 추가
-    [CreateAssetMenu(fileName = "NewSkillData", menuName = "Skill/Skill Data")]
+    [CreateAssetMenu(fileName = "NewSkillData", menuName = "ScriptableObject/Skill/Skill Data")]
     public class SkillData : ScriptableObject
     {
         [Header("기본 정보")]

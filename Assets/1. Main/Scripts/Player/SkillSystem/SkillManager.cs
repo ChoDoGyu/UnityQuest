@@ -95,6 +95,13 @@ namespace Main.Scripts.Player.SkillSystem
             }
         }
 
+        public void ClearSkills()
+        {
+            equippedSkills.Clear();
+            cooldownTimers.Clear();
+            Debug.Log("모든 스킬 초기화 완료");
+        }
+
         public List<SkillData> GetEquippedSkills() => equippedSkills;
     }
 }
