@@ -27,11 +27,13 @@ namespace Main.Scripts.Core
         [SerializeField] private FXManager fxManager;
         [SerializeField] private AudioManager audioManager;
         [SerializeField] private PauseManager pauseManager;
+        [SerializeField] private MapManager mapManager;
 
         public AudioManager Audio => audioManager;
         public FXManager FX => fxManager;
         public PauseManager Pause => pauseManager;
         public PlayerManager PlayerManager => playerManager;
+        public MapManager MapManager => mapManager;
 
         private void Awake()
         {
@@ -65,17 +67,26 @@ namespace Main.Scripts.Core
             if (audioManager == null)
                 audioManager = FindObjectOfType<AudioManager>();
 
-            if (SceneLoader.Instance == null)
-                gameObject.AddComponent<SceneLoader>();
-
             if (pauseManager == null)
                 pauseManager = FindObjectOfType<PauseManager>();
+
+            if (mapManager == null)
+                mapManager = FindObjectOfType<MapManager>();
+
+            if (SceneLoader.Instance == null)
+                gameObject.AddComponent<SceneLoader>();
         }
 
 
         private void Start()
         {
             SetupSkillUI();
+
+            //플레이어 아이콘 미니맵에 등록
+            if (mapManager != null && playerManager != null)
+            {
+                mapManager.RegisterIcon(playerManager.transform);
+            }
         }
 
         public void SetGameState(GameState newState)

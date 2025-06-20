@@ -17,6 +17,7 @@ namespace Main.Scripts.UI
         [SerializeField] private GameObject pauseMenuUI;
         [SerializeField] private OptionManager optionManager;
         [SerializeField] private GameObject optionMenuUI;
+        [SerializeField] private TooltipManager tooltipManager;
 
         [Header("Inventory & Equipment")]
         [SerializeField] private GameObject inventoryPanel;
@@ -27,6 +28,7 @@ namespace Main.Scripts.UI
         private bool isInventoryOpen = false;
 
         public OptionManager Option => optionManager;
+        public TooltipManager Tooltip => tooltipManager;
 
         private void Awake()
         {

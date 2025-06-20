@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154313090358520184}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4391471295969797712}
   - component: {fileID: 7673279341314681518}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EL_DEF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1342206382474295893}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Mune_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6681037793738861441}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Mune_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5231284610415981074}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2581211617161866723}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_Mune_root_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4191824168895555237}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Sode_A01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4615953310250900406}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_SkirtBack_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 181502847293948986}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3891790859605740858}
   - component: {fileID: 4337071582586247302}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EYE_DEF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 416228629544853328}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HairTail_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3390864909095028063}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6319190801559057360}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_SkirtBack_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5174550497020968514}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_SkirtBack_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2389664424942860312}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HeadRibbon_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4869829210044347483}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Sode_C00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,7 +637,7 @@ GameObject:
   - component: {fileID: 2371408534505772033}
   - component: {fileID: 8558672038855252359}
   - component: {fileID: 5115396273594984140}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: eye_R_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -718,7 +718,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5549947737641328180}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandRing4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,7 +749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6785559783851332041}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HairTail_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -781,7 +781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3059108449430754561}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,7 +813,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7030857360178218820}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_SusoSide_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -844,7 +844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2829877600123558870}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -878,7 +878,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6326336552037986086}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Skirt_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -909,7 +909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486943988063584600}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -941,7 +941,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3833103344474843469}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -974,7 +974,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6988681753952349859}
   - component: {fileID: 1630319786236726123}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MTH_DEF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1059,7 +1059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2795050270507386385}
   - component: {fileID: 2297372782237306307}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1189,7 +1189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 561978226983768035}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Sode_B01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1220,7 +1220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7109660858109856435}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1252,7 +1252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7580056718828310564}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1284,7 +1284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 261693944869284505}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HeadRibbon_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1315,7 +1315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6545946234367530520}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_SusoBack_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1346,7 +1346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8535743220806242014}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_SkirtBack_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1377,7 +1377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6830425131781247930}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HeadRibbon_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1409,7 +1409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 291327758947041920}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HairTail_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1441,7 +1441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8785132523478470113}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HairTail_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,7 +1475,7 @@ GameObject:
   - component: {fileID: 6201978446177116460}
   - component: {fileID: 3342983690932386758}
   - component: {fileID: 2589468231493155763}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: eye_base_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1556,7 +1556,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5073801880157530435}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_SusoSide_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1588,7 +1588,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2922535477043561744}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_Reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1620,7 +1620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5154449699667775851}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Sode_B00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1652,7 +1652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7932524021591605455}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1684,7 +1684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5726409729975894256}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1716,7 +1716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9055384755779533152}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_SusoFront_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1747,7 +1747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8988036581949941357}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1781,7 +1781,7 @@ GameObject:
   - component: {fileID: 7587065640422134322}
   - component: {fileID: 139052804895899377}
   - component: {fileID: 2598810732502305949}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CM_QuarterViewCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1796,8 +1796,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2152973581107581040}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: -0.000000023196664, z: 0.000000009608374, w: 0.9238796}
-  m_LocalPosition: {x: 0, y: 5, z: -5}
+  m_LocalRotation: {x: 0.38268343, y: -0.00000003809349, z: 0.00000001577884, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 7, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1870,7 +1870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1725354797116137972}
   - component: {fileID: 2809784947902505605}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: uwagi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2000,7 +2000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9061579077309450003}
   - component: {fileID: 2101869236736573366}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shirts_sode_BK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2114,9 +2114,9 @@ GameObject:
   - component: {fileID: 6249732502495951675}
   - component: {fileID: 2170286768299846623}
   - component: {fileID: 2854098727404981824}
-  - component: {fileID: 3310122543785135195}
   - component: {fileID: 606885655224706122}
-  m_Layer: 0
+  - component: {fileID: 8842403588030249183}
+  m_Layer: 3
   m_Name: unitychan
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2227,8 +2227,9 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   playerLook: {fileID: 0}
   animatorController: {fileID: 0}
-  playerWeaponManager: {fileID: 0}
   skillManager: {fileID: 0}
+  equipmentManager: {fileID: 0}
+  equippedPotion: {fileID: 0}
 --- !u!114 &6249732502495951675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2267,20 +2268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothing: 10
---- !u!114 &3310122543785135195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2486135035723886354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f13fc4ea7fae37d41a59597a2b877db9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponHoldPoint: {fileID: 7745277554428324215}
-  weaponTypes: 
 --- !u!114 &606885655224706122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2294,6 +2281,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equippedSkills: []
+--- !u!114 &8842403588030249183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2486135035723886354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5ada11fa3678549b9f55ce3849e2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRoot: {fileID: 8953027727443388732}
+  weaponHoldPoint: {fileID: 0}
 --- !u!1 &2820663881262182803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,7 +2304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522008614917339127}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2335,7 +2336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 441533563954597629}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2367,7 +2368,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7858704940793969141}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2400,7 +2401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8865001922516298258}
   - component: {fileID: 4146748395691766163}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hair_accce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2498,7 +2499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7304516280682929374}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_SusoBack_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2530,7 +2531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 37266888467613133}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HairTail_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2563,7 +2564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6127034652601845858}
   - component: {fileID: 3788152150609428312}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BLW_DEF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2647,7 +2648,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2425744664701468165}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HairTail_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2680,7 +2681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2047723161366728522}
   - component: {fileID: 3395881159514271607}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shirts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2795,7 +2796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7231655400950851590}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2827,7 +2828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2623604885692898981}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Sode_D01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2860,7 +2861,7 @@ GameObject:
   - component: {fileID: 7880000012424229667}
   - component: {fileID: 4226540183798392422}
   - component: {fileID: 6505608886061905681}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: head_back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2941,7 +2942,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6923109211299730216}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Skirt_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2974,7 +2975,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3649262510179054450}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandIndex4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3006,7 +3007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4780406960592126398}
   - component: {fileID: 1670953190903414889}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3198,7 +3199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4444316588778312979}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Skirt_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3231,7 +3232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4903683026345032577}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_SusoFront_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3263,7 +3264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6014152669923468897}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_SusoBack_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3294,7 +3295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6856767834732711127}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3331,7 +3332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 621825559166070709}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HairSide_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3363,7 +3364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2495102004197357142}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3395,7 +3396,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1966093556959367869}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3427,7 +3428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6026878957868422846}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3462,7 +3463,7 @@ GameObject:
   - component: {fileID: 8108175203495068689}
   - component: {fileID: 6363093783714359690}
   - component: {fileID: 1258118644460994536}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3536,7 +3537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 5, z: -5}
+  m_FollowOffset: {x: 0, y: 7, z: -7}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -3554,7 +3555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4387038368655035746}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3586,7 +3587,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1812283539449926256}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandMiddle4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3617,7 +3618,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2980582762668864206}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HairTail_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3649,7 +3650,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3586848325451320557}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3680,7 +3681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7003533520364679840}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3712,7 +3713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1840365362589188643}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_SkirtBack_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3745,7 +3746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7482466861348830736}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_SkirtBack_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3776,7 +3777,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3641545786641668204}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HairTail_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3808,7 +3809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1244999660953097966}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Skirt_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3840,7 +3841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7248326503572009724}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Mune_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3873,7 +3874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5455156341800134004}
   - component: {fileID: 1041991681002723596}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cheek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3968,7 +3969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5071569355470452238}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4000,7 +4001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4298605218523450523}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4046,7 +4047,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6020835226155070445}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4082,7 +4083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9508331853383819}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HairSide_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4113,7 +4114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7946922685732675075}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_SusoSide_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4145,7 +4146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7246870262397006357}
   - component: {fileID: 8820491847528256700}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4243,7 +4244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4816333834351686212}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4279,7 +4280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3968596607961331709}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4312,7 +4313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7676457535203285471}
   - component: {fileID: 7793570544829074845}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hair_front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4411,7 +4412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6347811809028279079}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HairTail_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4444,7 +4445,7 @@ GameObject:
   - component: {fileID: 9038272126470619973}
   - component: {fileID: 3956722642099091029}
   - component: {fileID: 813859524631089259}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: eye_L_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4525,7 +4526,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 865176835471494047}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HeadRibbon_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4557,7 +4558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 360894628035983566}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HairFront_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4589,7 +4590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6641461431038636488}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HairSide_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4621,7 +4622,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4551465742714012945}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4653,7 +4654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5301736066239436648}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Sode_A00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4685,7 +4686,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4385598161168245429}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Sode_D01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4716,7 +4717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4985291380699893011}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandThumb4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4747,7 +4748,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5907199401454893172}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HairFront_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4779,7 +4780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8275004159428157618}
   - component: {fileID: 4720926345453078868}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hairband
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4875,7 +4876,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4639078154069303236}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Skirt_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4906,7 +4907,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4280423784592847930}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HairTail_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4938,7 +4939,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2876734204059572969}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandMiddle4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4969,7 +4970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8051491883148977953}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandPinky4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5000,7 +5001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3047057512983554969}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HairSide_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5031,7 +5032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944014371292220206}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5065,7 +5066,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1076426059663906822}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandThumb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5097,7 +5098,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 28819890109471191}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HairSide_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5129,7 +5130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 246375446522214175}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HeadRibbon_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5160,7 +5161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5903354490232026492}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_SusoBack_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5192,7 +5193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7493535289556299128}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5224,7 +5225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5853142472092812553}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5256,7 +5257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4128087595485202201}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Sode_C00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5288,7 +5289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8541411771892796481}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HairFront_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5320,7 +5321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7820967692800501927}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5352,7 +5353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3784930905154956737}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Sode_D00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5384,7 +5385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8883515441607178501}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Sode_C01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5415,7 +5416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5273792491902279830}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5447,7 +5448,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 942560374637336881}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_SusoFront_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5479,7 +5480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1460635849057570700}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_Mune_root_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5511,7 +5512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8001910200015422322}
   - component: {fileID: 4126721957875041852}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5645,7 +5646,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8427184138873801462}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Skirt_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5677,7 +5678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5833930357234530447}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5709,7 +5710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4576514390571229625}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandRing4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5740,7 +5741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5359193424711670321}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5772,7 +5773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8262605438378035600}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5804,7 +5805,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7525575075657088676}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5836,7 +5837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6911040161600847779}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5868,7 +5869,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3357455507699955499}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5904,7 +5905,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4793739325293607318}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HairTail_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5935,7 +5936,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1928336072188981846}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Mune_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5966,7 +5967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5935387302534020754}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5998,7 +5999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6685187526762496517}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandIndex4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6030,7 +6031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3478629042472136169}
   - component: {fileID: 3915426641345243981}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: uwagi_BK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6159,7 +6160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5314557709694879057}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6192,7 +6193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7745277554428324215}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WeaponHoldPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6223,7 +6224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1336013150257238756}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Sode_D00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6255,7 +6256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5059719866218031482}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6287,7 +6288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1498116038034629219}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_SusoSide_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6319,7 +6320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5796488440992828166}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CameraRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6351,7 +6352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3729527420317423399}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HairSide_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6384,7 +6385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4579811516895355742}
   - component: {fileID: 3016730877374782951}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shirts_sode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6525,7 +6526,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4957895997997274002}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6558,7 +6559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7469353945253947701}
   - component: {fileID: 3246386507188814491}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tail_bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6658,7 +6659,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7099868721118686754}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mesh_root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6704,7 +6705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4110843344135675665}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Sode_A00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6736,7 +6737,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 327550034114692214}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6768,7 +6769,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8684397780541579172}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandPinky4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6799,7 +6800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8987237453836645876}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HairTail_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6831,7 +6832,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6823272440034559446}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Mune_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6862,7 +6863,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2568786172800630949}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Sode_B00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6894,7 +6895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6482639257883805515}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_LeftHandPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6926,7 +6927,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8350829978101021507}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HairTail_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6958,7 +6959,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7505711708266648303}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6990,7 +6991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6198329962962129276}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandThumb4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7021,7 +7022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 497233097984412687}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Sode_B01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7052,7 +7053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6968159537096383742}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HairFront_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7084,7 +7085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9044887686399467429}
   - component: {fileID: 1015883164249993039}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hair_frontside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7187,7 +7188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 965694915522167452}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandThumb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7219,7 +7220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4903739572966009135}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Mune_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7251,7 +7252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5838726025368318925}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_HairTail_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7283,7 +7284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3893017898538930721}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_R_Sode_A01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7314,7 +7315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3369639401062174468}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_SusoFront_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7345,7 +7346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6180547072332134224}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7377,7 +7378,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1723936156542529330}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character1_RightHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7409,7 +7410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7662076539891907193}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_Sode_C01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7440,7 +7441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6300422164286842055}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: J_L_HeadRibbon_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Main.Scripts.Data;
+using Main.Scripts.Interfaces;
 
 namespace Main.Scripts.UI
 {
-    public class ItemSlotBase : MonoBehaviour
+    public class ItemSlotBase : MonoBehaviour, ITooltipProvider
     {
         public Image iconImage;
         public ItemData currentItem;
@@ -21,6 +22,12 @@ namespace Main.Scripts.UI
             currentItem = null;
             iconImage.sprite = null;
             iconImage.enabled = false;
+        }
+
+        public string GetTooltipText()
+        {
+            if (currentItem == null) return "";
+            return $"{currentItem.itemName}\n{currentItem.description}";
         }
     }
 }
