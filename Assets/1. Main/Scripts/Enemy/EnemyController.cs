@@ -2,11 +2,14 @@ using UnityEngine;
 using UnityEngine.AI;
 using Main.Scripts.Interfaces;
 using Main.Scripts.Data;
+using Main.Scripts.Core;
 
 namespace Main.Scripts.Enemy
 {
     public class EnemyController : MonoBehaviour, IDamageable
     {
+        public System.Action OnReturnedToPool;
+
         // 상태 머신 관련
         private IEnemyState currentState;
         private IEnemyState lastState;      // Stunned 후 복귀용
@@ -57,39 +60,41 @@ namespace Main.Scripts.Enemy
             stunnedState = new StunnedState();
         }
 
+        protected virtual void OnEnable()
+        {
+            // 풀링 복귀 후 다시 켜질 때 초기화
+            isDead = false;
+
+            if (statData != null)
+                currentHP = statData.maxHP;
+            else
+                currentHP = 100f;
+
+            // 체력바 활성화
+            if (healthBarInstance != null)
+                healthBarInstance.gameObject.SetActive(true);
+
+            // 최초 상태 전환
+            TransitionToState(idleState);
+
+            // 아이콘 재등록
+            EnemyManager.Instance?.RegisterEnemy(this);
+        }
+
         protected virtual void Start()
         {
-            if (statData != null)
-            {
-                agent.speed = statData.moveSpeed;
-                currentHP = statData.maxHP;
-            }
-            else
-            {
-                Debug.LogWarning($"[EnemyController] {name} 에 statData 미할당됨.");
-                currentHP = 100f;
-            }
-
             if (player == null)
                 player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
-            // 최초 상태는 Idle
-            TransitionToState(idleState);
-
-            // EnemyManager에 등록
-            EnemyManager.Instance?.RegisterEnemy(this);
-
-            //체력바 UI 생성
-            if (healthBarPrefab != null)
+            if (healthBarPrefab != null && healthBarInstance == null)
             {
                 Transform cam = Camera.main.transform;
-                Vector3 offset = new Vector3(0, 2.0f, 0); // 머리 위로 띄우기
+                Vector3 offset = new Vector3(0, 2.0f, 0);
                 healthBarInstance = Instantiate(healthBarPrefab, transform.position + offset, Quaternion.identity);
                 healthBarInstance.Initialize(cam);
                 healthBarInstance.transform.SetParent(transform, worldPositionStays: true);
             }
         }
-
 
         private void Update()
         {
@@ -142,7 +147,9 @@ namespace Main.Scripts.Enemy
 
         private void OnDestroy()
         {
+            // 파괴되거나 풀 반환 전에 아이콘 제거
             EnemyManager.Instance?.UnregisterEnemy(this);
+            GameManager.Instance?.MapManager?.UnregisterIcon(this.transform);
         }
     }
 }

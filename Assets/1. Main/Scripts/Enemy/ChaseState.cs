@@ -37,6 +37,8 @@ namespace Main.Scripts.Enemy
         public void ExitState(EnemyController enemy)
         {
             enemy.GetAgent().isStopped = true;
+
+
         }
     }
 }

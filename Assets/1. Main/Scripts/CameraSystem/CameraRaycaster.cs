@@ -27,7 +27,9 @@ namespace Main.Scripts.CameraSystem
 
             foreach (var hit in hits)
             {
+                //바뀐 부분: root 대신 hit.collider.transform 사용
                 Renderer renderer = hit.collider.GetComponent<Renderer>();
+
                 if (renderer != null)
                 {
                     if (!originalMaterials.ContainsKey(renderer))

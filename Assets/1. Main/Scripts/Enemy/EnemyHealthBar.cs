@@ -8,10 +8,13 @@ namespace Main.Scripts.Enemy
         [SerializeField] private Slider slider;
         private Transform cam;
 
+        private bool isActive = true;
+
         // 초기화 (카메라 전달)
         public void Initialize(Transform cameraTransform)
         {
             cam = cameraTransform;
+            isActive = true;
         }
 
         // 체력 업데이트
@@ -21,13 +24,16 @@ namespace Main.Scripts.Enemy
                 slider.value = current / max;
         }
 
+        private void OnDisable()
+        {
+            isActive = false;
+        }
+
         private void LateUpdate()
         {
-            if (cam != null)
-            {
-                // 체력바가 항상 카메라를 바라보도록 설정
-                transform.forward = cam.forward;
-            }
+            if (!isActive || cam == null) return;
+
+            transform.forward = cam.forward;
         }
     }
 }

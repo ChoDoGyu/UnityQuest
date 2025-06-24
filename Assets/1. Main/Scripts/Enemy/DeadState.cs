@@ -27,8 +27,16 @@ namespace Main.Scripts.Enemy
                 dropHandler.DropItems();
             }
 
-            // 추후 오브젝트 풀링을 고려해 SetActive 방식으로도 대체 가능
-            GameObject.Destroy(enemy.gameObject);
+            //풀 반환 처리
+            if (enemy.OnReturnedToPool != null)
+            {
+                enemy.OnReturnedToPool.Invoke();
+            }
+            else
+            {
+                // 풀 사용 안할 때만 Destroy
+                GameObject.Destroy(enemy.gameObject);
+            }
         }
 
         public void UpdateState(EnemyController enemy) { }

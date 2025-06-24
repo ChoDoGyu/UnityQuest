@@ -23,6 +23,8 @@ namespace Main.Scripts.Core
         {
             foreach (MapIcon icon in icons)
             {
+                if (icon.Target == null || icon.RectTransform == null) continue;
+
                 Vector2 pos = WorldToMapPosition(icon.Target.position);
                 icon.RectTransform.anchoredPosition = pos;
             }
@@ -49,7 +51,9 @@ namespace Main.Scripts.Core
             {
                 if (icons[i].Target == target)
                 {
-                    Destroy(icons[i].RectTransform.gameObject);
+                    if (icons[i].RectTransform != null)
+                        Destroy(icons[i].RectTransform.gameObject);
+
                     icons.RemoveAt(i);
                     break;
                 }
@@ -59,7 +63,7 @@ namespace Main.Scripts.Core
         private Vector2 WorldToMapPosition(Vector3 worldPos)
         {
             Vector3 offset = worldPos - playerTransform.position;
-            return new Vector2(offset.x, offset.z) * 5f; // 스케일은 필드 크기에 맞게
+            return new Vector2(offset.x, offset.z) * 5f; // 맵 스케일에 맞게 조절
         }
     }
 

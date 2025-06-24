@@ -16,6 +16,6 @@ MonoBehaviour:
   moveSpeed: 3.5
   attackRange: 2
   detectRange: 10
-  chaseLimitRange: 15
+  chaseLimitRange: 10
   attackCooldown: 2
   stunDuration: 1

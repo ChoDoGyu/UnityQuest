@@ -8,6 +8,9 @@ namespace Main.Scripts.SceneManagement
     {
         public static SceneLoader Instance { get; private set; }
 
+        [Header("Optional: 로딩씬 이름 (Inspector에서 설정 가능)")]
+        [SerializeField] private string loadingSceneName = "LoadingScene";
+
         private bool isLoading = false;
 
         private void Awake()
@@ -22,21 +25,28 @@ namespace Main.Scripts.SceneManagement
             DontDestroyOnLoad(gameObject);
         }
 
-        public void LoadScene(string sceneName)
+        public void LoadScene(string targetSceneName)
         {
             if (!isLoading)
             {
-                StartCoroutine(LoadSceneAsync(sceneName));
+                StartCoroutine(LoadSceneWithLoadingRoutine(targetSceneName));
             }
         }
 
-        private IEnumerator LoadSceneAsync(string sceneName)
+        private IEnumerator LoadSceneWithLoadingRoutine(string targetSceneName)
         {
             isLoading = true;
 
-            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+            // 1) 로딩씬 먼저 즉시 로드
+            SceneManager.LoadScene(loadingSceneName);
+            yield return null;
+
+            // 2) 대상 씬 비동기 로드
+            AsyncOperation operation = SceneManager.LoadSceneAsync(targetSceneName);
+
             while (!operation.isDone)
             {
+                // TODO: 로딩 ProgressBar 업데이트 가능
                 yield return null;
             }
 
