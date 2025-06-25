@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace Main.Scripts.Core
 {
@@ -33,11 +34,29 @@ namespace Main.Scripts.Core
         /// <summary>
         /// 아이콘 등록 (플레이어, 몬스터 등)
         /// </summary>
-        public void RegisterIcon(Transform target)
+        public void RegisterIcon(Transform target, string type)
         {
             if (target == null) return;
 
             GameObject iconGO = Instantiate(iconPrefab, mapRect);
+            Image iconImage = iconGO.GetComponent<Image>();
+
+            switch (type)
+            {
+                case "Player":
+                    iconImage.color = Color.blue;
+                    break;
+                case "Enemy":
+                    iconImage.color = Color.red;
+                    break;
+                case "NPC":
+                    iconImage.color = Color.yellow;
+                    break;
+                default:
+                    iconImage.color = Color.white;
+                    break;
+            }
+
             MapIcon icon = new MapIcon(target, iconGO.GetComponent<RectTransform>());
             icons.Add(icon);
         }

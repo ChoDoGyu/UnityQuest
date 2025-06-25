@@ -32,7 +32,7 @@ namespace Main.Scripts.Enemy
             //스폰되면 미니맵에 아이콘 자동 등록
             if (GameManager.Instance != null && GameManager.Instance.MapManager != null)
             {
-                GameManager.Instance.MapManager.RegisterIcon(enemy.transform);
+                GameManager.Instance.MapManager.RegisterIcon(enemy.transform, "Enemy");
             }
         }
 

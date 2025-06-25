@@ -7,18 +7,26 @@ namespace Main.Scripts.Enemy.Boss
         private BossController boss;
         private int currentStage = 0;
 
-        // 체력 퍼센트 기준 (예: 70%, 40% 이하 시 패턴 전환)
+        [Header("Stage Thresholds")]
         [SerializeField] private float stage2Threshold = 0.7f;
         [SerializeField] private float stage3Threshold = 0.4f;
 
-        // 초기화
+        [Header("Boss Camera Director")]
+        [SerializeField] private BossCameraDirector bossCameraDirector;
+
+
+        /// <summary>
+        /// BossController에서 초기화 시 호출
+        /// </summary>
         public void Initialize(BossController controller)
         {
             boss = controller;
-            currentStage = 1; // 시작은 Stage 1
+            currentStage = 1; // 시작 Stage
         }
 
-        // 체력 퍼센트로 다음 패턴 결정
+        /// <summary>
+        /// BossController에서 체력 퍼센트 변화 시 호출
+        /// </summary>
         public void EvaluateNextPattern(float hpRatio)
         {
             if (currentStage == 1 && hpRatio < stage2Threshold)
@@ -34,17 +42,27 @@ namespace Main.Scripts.Enemy.Boss
         private void EnterStage2()
         {
             currentStage = 2;
-            Debug.Log("[BossPatternManager] Stage 2 진입");
-            boss.ExecutePattern1(); // 예: 대형 범위 공격
+            Debug.Log("[BossPatternManager] Stage 2 진입!");
+
+            // Stage 2 패턴 실행
+            boss.ExecutePattern1();
             boss.PlayRoarSound();
+
+            // Boss 전용 카메라 연출 트리거
+            bossCameraDirector?.PlayBossIntro();
         }
 
         private void EnterStage3()
         {
             currentStage = 3;
-            Debug.Log("[BossPatternManager] Stage 3 진입");
-            boss.ExecutePattern2(); // 예: 광폭화 패턴
+            Debug.Log("[BossPatternManager] Stage 3 진입!");
+
+            // Stage 3 패턴 실행
+            boss.ExecutePattern2();
             boss.PlayRoarSound();
+
+            // Stage 3도 필요하다면 추가 연출 호출
+            bossCameraDirector?.PlayBossIntro();
         }
     }
 }

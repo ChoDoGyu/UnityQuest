@@ -34,7 +34,7 @@ namespace Main.Scripts.Enemy.Boss
 
             float currentRatio = GetCurrentHP() / maxHP;
 
-            // 패턴 조건 평가
+            // 체력 퍼센트 변화에 따른 패턴 평가
             if (patternManager != null && currentRatio < lastHPPercentage)
             {
                 patternManager.EvaluateNextPattern(currentRatio);

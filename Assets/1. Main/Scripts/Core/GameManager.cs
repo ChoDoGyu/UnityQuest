@@ -34,6 +34,7 @@ namespace Main.Scripts.Core
         public PauseManager Pause => pauseManager;
         public PlayerManager PlayerManager => playerManager;
         public MapManager MapManager => mapManager;
+        public UIManager UIManager => uiManager;
 
         private void Awake()
         {
@@ -85,7 +86,7 @@ namespace Main.Scripts.Core
             //플레이어 아이콘 미니맵에 등록
             if (mapManager != null && playerManager != null)
             {
-                mapManager.RegisterIcon(playerManager.transform);
+                mapManager.RegisterIcon(playerManager.transform, "Player");
             }
         }
 
