@@ -1,23 +1,50 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 using Main.Scripts.Data;
+using Main.Scripts.Player;
 
 namespace Main.Scripts.UI
 {
     public class InventoryManager : MonoBehaviour
     {
-        [Header("Slot 자동 생성 설정")]
+        public static InventoryManager Instance { get; private set; }
+
+        [Header("슬롯 생성 관련")]
         [SerializeField] private InventorySlot slotPrefab;
         [SerializeField] private int slotCount = 20;
-
-        [Header("Slot이 생성될 부모")]
         [SerializeField] private Transform slotParent;
 
-        public List<InventorySlot> slots = new();
+        [Header("UI 요소")]
+        [SerializeField] private TextMeshProUGUI goldText;
+
+        private readonly List<InventorySlot> slots = new();
 
         private void Awake()
         {
+            if (Instance == null) Instance = this;
+            else Destroy(gameObject);
+
             GenerateSlots();
+        }
+
+        private void Start()
+        {
+            PlayerWallet.Instance.OnGoldChanged += RefreshGoldUI;
+            PlayerInventory.Instance.OnInventoryChanged += () =>
+            {
+                ShowItems(PlayerInventory.Instance.GetItems());
+            };
+
+            // 초기 상태 반영
+            RefreshGoldUI(PlayerWallet.Instance.Gold);
+            ShowItems(PlayerInventory.Instance.GetItems());
+        }
+
+        public void RefreshGoldUI(int gold)
+        {
+            if (goldText != null)
+                goldText.text = $"{gold:N0} G";
         }
 
         private void GenerateSlots()
@@ -26,37 +53,27 @@ namespace Main.Scripts.UI
             {
                 if (slot != null) Destroy(slot.gameObject);
             }
+
             slots.Clear();
 
             for (int i = 0; i < slotCount; i++)
             {
-                var newSlot = Instantiate(slotPrefab, slotParent); //Bag 밑에 붙음!
+                var newSlot = Instantiate(slotPrefab, slotParent);
                 slots.Add(newSlot);
             }
         }
 
-        public void AddItem(ItemData item)
+        public void ShowItems(IReadOnlyList<ItemData> items)
         {
-            foreach (var slot in slots)
+            for (int i = 0; i < slots.Count; i++)
             {
-                if (slot.currentItem == null)
+                if (i < items.Count)
                 {
-                    slot.SetItem(item);
-                    return;
+                    slots[i].SetItem(items[i]);
                 }
-            }
-
-            Debug.LogWarning("인벤토리가 가득 찼습니다!");
-        }
-
-        public void RemoveItem(ItemData item)
-        {
-            foreach (var slot in slots)
-            {
-                if (slot.currentItem == item)
+                else
                 {
-                    slot.Clear();
-                    return;
+                    slots[i].Clear();
                 }
             }
         }

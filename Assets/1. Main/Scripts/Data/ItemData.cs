@@ -18,6 +18,7 @@ namespace Main.Scripts.Data
         public ItemType itemType;
         public Sprite icon;
         public GameObject worldPrefab;
+        public int price = 10;
         [TextArea] public string description;
     }
 }

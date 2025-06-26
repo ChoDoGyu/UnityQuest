@@ -4,6 +4,7 @@ using Main.Scripts.Data;
 using Main.Scripts.Player.SkillSystem;
 using System;
 using System.Collections.Generic;
+using Main.Scripts.UI.Shop;
 
 namespace Main.Scripts.UI
 {
@@ -18,6 +19,7 @@ namespace Main.Scripts.UI
         [SerializeField] private OptionManager optionManager;
         [SerializeField] private GameObject optionMenuUI;
         [SerializeField] private TooltipManager tooltipManager;
+        [SerializeField] private ShopController shopController;
 
         [Header("Inventory & Equipment")]
         [SerializeField] private GameObject inventoryPanel;
@@ -26,6 +28,8 @@ namespace Main.Scripts.UI
 
         private PlayerInputActions inputActions;
         private bool isInventoryOpen = false;
+
+        public bool isSellMode = false; // 현재 판매 모드 여부
 
         public OptionManager Option => optionManager;
         public TooltipManager Tooltip => tooltipManager;
@@ -73,6 +77,20 @@ namespace Main.Scripts.UI
             isInventoryOpen = !isInventoryOpen;
             inventoryPanel?.SetActive(isInventoryOpen);
             equipmentPanel?.SetActive(isInventoryOpen);
+        }
+
+        public void OpenShop(ShopData data)
+        {
+            shopController.OpenShop(data);
+            inventoryPanel.SetActive(true);
+        }
+
+        public void CloseShop()
+        {
+            shopController.CloseShop();
+            inventoryPanel.SetActive(false);
+
+            isSellMode = false;
         }
 
         public void UpdateHP(float ratio) => hudView.UpdateHP(ratio);
