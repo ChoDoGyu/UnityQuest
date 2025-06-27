@@ -5,6 +5,8 @@ using Main.Scripts.Player.SkillSystem;
 using System;
 using System.Collections.Generic;
 using Main.Scripts.UI.Shop;
+using Main.Scripts.UI.Quest;
+using Main.Scripts.Core;
 
 namespace Main.Scripts.UI
 {
@@ -20,6 +22,8 @@ namespace Main.Scripts.UI
         [SerializeField] private GameObject optionMenuUI;
         [SerializeField] private TooltipManager tooltipManager;
         [SerializeField] private ShopController shopController;
+        [SerializeField] private QuestNotificationPanel questNotificationPanel;
+        [SerializeField] private QuestJournalPanel questJournalPanel;
 
         [Header("Inventory & Equipment")]
         [SerializeField] private GameObject inventoryPanel;
@@ -91,6 +95,35 @@ namespace Main.Scripts.UI
             inventoryPanel.SetActive(false);
 
             isSellMode = false;
+        }
+
+
+        public void NotifyQuestUpdate(QuestEventType type, QuestData quest)
+        {
+            string msg = type switch
+            {
+                QuestEventType.Accepted => $"[퀘스트 수락] {quest.questName}",
+                QuestEventType.ObjectiveUpdated => $"[퀘스트 진행] {quest.questName}",
+                QuestEventType.Completed => $"[퀘스트 완료] {quest.questName}",
+                _ => ""
+            };
+
+            // 퀘스트 알림 출력
+            questNotificationPanel?.Show(msg);
+
+            // 저널 패널 새로고침
+            UpdateQuestJournal();
+        }
+
+        public void UpdateQuestJournal()
+        {
+            if (questJournalPanel == null) return;
+
+            // 현재 진행 중인 퀘스트 목록 가져오기
+            var questList = GameManager.Instance.QuestManager.GetActiveQuests();
+
+            // UI에 반영
+            questJournalPanel.Refresh(questList);
         }
 
         public void UpdateHP(float ratio) => hudView.UpdateHP(ratio);

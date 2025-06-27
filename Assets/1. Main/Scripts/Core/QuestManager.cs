@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Main.Scripts.Data;
 using Main.Scripts.Player;
+using Main.Scripts.UI.Quest;
 
 namespace Main.Scripts.Core
 {
@@ -40,6 +41,9 @@ namespace Main.Scripts.Core
 
             activeQuests.Add(quest.questId, quest);
             GameManager.Instance.LogToConsole($"[퀘스트 수락] {quest.questName}");
+
+            //알림 호출
+            GameManager.Instance.UIManager.NotifyQuestUpdate(QuestEventType.Accepted, quest);
         }
 
         /// <summary>
@@ -62,6 +66,9 @@ namespace Main.Scripts.Core
                             $"[퀘스트 진행] {obj.description} ({obj.currentAmount}/{obj.requiredAmount})"
                         );
 
+                        //알림 호출 (진행 중)
+                        GameManager.Instance.UIManager.NotifyQuestUpdate(QuestEventType.ObjectiveUpdated, quest);
+
                         // 전체 목표가 모두 완료되었는지 체크 (퀘스트 완료 가능)
                         if (IsObjectiveComplete(quest))
                         {
@@ -69,6 +76,8 @@ namespace Main.Scripts.Core
                                 $"[퀘스트 완료 가능] {quest.questName} → NPC에게 보고하세요."
                             );
                         }
+
+                        break; // 동일 목표는 하나만 갱신하므로 빠져나감
                     }
                 }
             }
@@ -105,6 +114,9 @@ namespace Main.Scripts.Core
             // 5. 퀘스트 상태 갱신
             activeQuests.Remove(quest.questId);
             completedQuests.Add(quest.questId);
+
+            //알림 호출 (완료)
+            GameManager.Instance.UIManager.NotifyQuestUpdate(QuestEventType.Completed, quest);
         }
 
         /// <summary>
@@ -127,6 +139,14 @@ namespace Main.Scripts.Core
                 if (!obj.IsComplete) return false;
             }
             return true;
+        }
+
+        /// <summary>
+        /// 현재 수락 중인 퀘스트 리스트 반환 (저널 패널용)
+        /// </summary>
+        public List<QuestData> GetActiveQuests()
+        {
+            return new List<QuestData>(activeQuests.Values);
         }
     }
 }
