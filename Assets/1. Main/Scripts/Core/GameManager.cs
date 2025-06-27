@@ -28,6 +28,7 @@ namespace Main.Scripts.Core
         [SerializeField] private AudioManager audioManager;
         [SerializeField] private PauseManager pauseManager;
         [SerializeField] private MapManager mapManager;
+        [SerializeField] private QuestManager questManager;
 
         public AudioManager Audio => audioManager;
         public FXManager FX => fxManager;
@@ -35,6 +36,7 @@ namespace Main.Scripts.Core
         public PlayerManager PlayerManager => playerManager;
         public MapManager MapManager => mapManager;
         public UIManager UIManager => uiManager;
+        public QuestManager QuestManager => questManager;
 
         private void Awake()
         {
@@ -73,6 +75,9 @@ namespace Main.Scripts.Core
 
             if (mapManager == null)
                 mapManager = FindObjectOfType<MapManager>();
+
+            if (questManager == null)
+                questManager = FindObjectOfType<QuestManager>();
 
             if (SceneLoader.Instance == null)
                 gameObject.AddComponent<SceneLoader>();

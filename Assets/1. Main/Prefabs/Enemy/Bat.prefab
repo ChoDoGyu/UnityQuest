@@ -1405,6 +1405,7 @@ MonoBehaviour:
   statData: {fileID: 11400000, guid: ac74b64288c739f439e8be10aee6d9f2, type: 2}
   healthBarPrefab: {fileID: 1862448039656681576, guid: 09def423560980d418e12e98cfb0f9bd,
     type: 3}
+  questObjectiveId: KillBat
 --- !u!114 &1230768721623557068
 MonoBehaviour:
   m_ObjectHideFlags: 0

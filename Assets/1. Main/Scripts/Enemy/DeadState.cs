@@ -2,6 +2,7 @@
 using Main.Scripts.Interfaces;
 using System.Collections;
 using Main.Scripts.ItemSystem;
+using Main.Scripts.Core;
 
 namespace Main.Scripts.Enemy
 {
@@ -19,6 +20,12 @@ namespace Main.Scripts.Enemy
         private IEnumerator DelayedDeath(EnemyController enemy, float delay)
         {
             yield return new WaitForSeconds(delay);
+
+            //퀘스트 목표 갱신
+            if (!string.IsNullOrEmpty(enemy.QuestObjectiveId))
+            {
+                QuestManager.Instance?.UpdateObjective(enemy.QuestObjectiveId);
+            }
 
             // 드롭 처리 추가
             var dropHandler = enemy.GetComponent<EnemyDropHandler>();

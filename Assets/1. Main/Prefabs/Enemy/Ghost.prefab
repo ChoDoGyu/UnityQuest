@@ -243,6 +243,7 @@ MonoBehaviour:
   statData: {fileID: 11400000, guid: 4f93fc3d08f9da246a6998c5b18ea349, type: 2}
   healthBarPrefab: {fileID: 1862448039656681576, guid: 09def423560980d418e12e98cfb0f9bd,
     type: 3}
+  questObjectiveId: KillGhost
   firePoint: {fileID: 3096751478806379455}
   projectilePrefab: {fileID: 325779648053520130, guid: 5d0203cb05fdfcb42b85d5d6c6f504c1,
     type: 3}

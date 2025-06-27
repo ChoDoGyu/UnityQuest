@@ -43,6 +43,10 @@ namespace Main.Scripts.Enemy
         [SerializeField] private EnemyHealthBar healthBarPrefab;
         private EnemyHealthBar healthBarInstance;
 
+        [SerializeField]
+        private string questObjectiveId; // ¿¹: "KillBat"
+        public string QuestObjectiveId => questObjectiveId;
+
         protected virtual void Awake()
         {
             agent = GetComponent<NavMeshAgent>();

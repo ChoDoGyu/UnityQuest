@@ -2,10 +2,11 @@ using UnityEngine;
 using Main.Scripts.Data;
 using Main.Scripts.Core;
 using Main.Scripts.UI;
+using Main.Scripts.Interfaces;
 
 namespace Main.Scripts.NPC
 {
-    public class ShopNPC : MonoBehaviour
+    public class ShopNPC : MonoBehaviour, IInteractable
     {
         [Header("Shop ¿¬°á")]
         public ShopData shopData;
@@ -34,6 +35,11 @@ namespace Main.Scripts.NPC
                 return;
             }
 
+            Interact();
+        }
+
+        public void Interact()
+        {
             GameManager.Instance.Audio?.PlaySFX(talkSFX);
             UIManager.Instance.OpenShop(shopData);
         }

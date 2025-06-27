@@ -2236,6 +2236,7 @@ MonoBehaviour:
   statData: {fileID: 11400000, guid: d7d3706a4cb3e47439a87880bd43b9ed, type: 2}
   healthBarPrefab: {fileID: 1862448039656681576, guid: 09def423560980d418e12e98cfb0f9bd,
     type: 3}
+  questObjectiveId: KillDragon
   roarSFXName: BossRoar
   pattern1FXName: FireNova
   pattern2FXName: DarkBlast
