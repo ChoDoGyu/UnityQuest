@@ -17,6 +17,7 @@ namespace Main.Scripts.UI
         [SerializeField] private Slider masterSlider;
         [SerializeField] private Slider bgmSlider;
         [SerializeField] private Slider sfxSlider;
+        [SerializeField] private Slider uiSlider;
 
         [Header("해상도 설정")]
         [SerializeField] private TMP_Dropdown resolutionDropdown;
@@ -59,6 +60,7 @@ namespace Main.Scripts.UI
             masterSlider.value = AudioManager.Instance.GetVolume("MasterVolume");
             bgmSlider.value = AudioManager.Instance.GetVolume("BGMVolume");
             sfxSlider.value = AudioManager.Instance.GetVolume("SFXVolume");
+            uiSlider.value = AudioManager.Instance.GetVolume("UIVolume");
         }
 
         //슬라이더가 바뀌었을 때

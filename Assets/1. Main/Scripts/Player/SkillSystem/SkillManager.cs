@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Main.Scripts.Combat;
 using Main.Scripts.Data;
+using Main.Scripts.Core;
 
 namespace Main.Scripts.Player.SkillSystem
 {
@@ -45,6 +46,13 @@ namespace Main.Scripts.Player.SkillSystem
 
             // 쿨타임 갱신
             cooldownTimers[skill] = skill.cooldown;
+
+
+            //스킬 효과음 재생 (AudioClip이 지정된 경우에만)
+            if (skill.sfx != null)
+            {
+                AudioManager.Instance?.PlaySFX(skill.sfx);
+            }
 
             Fire(skill);
             // 실제 스킬 발동 로직 (지금은 단순 출력만)

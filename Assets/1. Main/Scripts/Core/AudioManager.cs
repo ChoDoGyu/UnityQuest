@@ -4,71 +4,153 @@ using UnityEngine.Audio;
 
 namespace Main.Scripts.Core
 {
+    /// <summary>
+    /// 게임 전역에서 사용할 오디오 관리자
+    /// BGM, 효과음(SFX), UI 사운드를 분리해서 관리하며
+    /// AudioMixer와 연결되어 볼륨 조절이 가능함
+    /// </summary>
     public class AudioManager : MonoBehaviour
     {
         public static AudioManager Instance { get; private set; }
 
 
-        [Header("AudioMixer 연결")]
+        [Header("AudioMixer 연결 (마스터 볼륨 조절용)")]
         [SerializeField] private AudioMixer audioMixer;
 
-        [Header("효과음 설정")]
+        [Header("AudioSource (사운드 출력용)")]
+        [SerializeField] private AudioSource bgmSource;
         [SerializeField] private AudioSource sfxSource;
-        [SerializeField] private List<SoundEntry> sfxEntries = new();
+        [SerializeField] private AudioSource uiSource;
 
+
+        [Header("사운드 목록")]
+        [SerializeField] private List<SoundEntry> bgmEntries = new();
+        [SerializeField] private List<SoundEntry> sfxEntries = new();
+        [SerializeField] private List<SoundEntry> uiEntries = new();
+
+        // 사운드 이름으로 빠르게 찾기 위한 Dictionary
+        private Dictionary<string, AudioClip> bgmDict;
         private Dictionary<string, AudioClip> sfxDict;
+        private Dictionary<string, AudioClip> uiDict;
 
         private void Awake()
         {
-            if (Instance == null) Instance = this;
-
-            sfxDict = new();
-            foreach (var entry in sfxEntries)
+            // 싱글톤 패턴 적용
+            if (Instance != null && Instance != this)
             {
-                if (!sfxDict.ContainsKey(entry.name))
-                    sfxDict.Add(entry.name, entry.clip);
+                Destroy(gameObject);
+                return;
             }
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+
+            // 리스트를 Dictionary로 변환
+            bgmDict = ToDict(bgmEntries);
+            sfxDict = ToDict(sfxEntries);
+            uiDict = ToDict(uiEntries);
+
+            // PlayerPrefs에서 이전 볼륨 설정 불러오기
+            LoadVolumes();
         }
 
-
-        //효과음 재생
-        public void PlaySFX(string name)
+        /// <summary>
+        /// SoundEntry 리스트를 Dictionary로 바꿔주는 함수
+        /// </summary>
+        private Dictionary<string, AudioClip> ToDict(List<SoundEntry> entries)
         {
-            if (sfxDict.TryGetValue(name, out AudioClip clip))
+            var dict = new Dictionary<string, AudioClip>();
+            foreach (var entry in entries)
             {
-                sfxSource.PlayOneShot(clip);
+                if (!dict.ContainsKey(entry.name))
+                    dict.Add(entry.name, entry.clip);
+            }
+            return dict;
+        }
+
+        /// <summary>
+        /// BGM 재생
+        /// </summary>
+        public void PlayBGM(string name)
+        {
+            if (bgmDict.TryGetValue(name, out var clip))
+            {
+                if (bgmSource.clip == clip && bgmSource.isPlaying) return;
+
+                bgmSource.clip = clip;
+                bgmSource.loop = true;
+                bgmSource.Play();
             }
             else
             {
-                Debug.LogWarning($"SFX '{name}' not found in AudioManager.");
+                Debug.LogWarning($"[AudioManager] BGM '{name}' not found.");
             }
         }
 
 
-        //AudioMixer 볼륨 설정
-        public void SetMasterVolume(float value)
+        /// <summary>
+        /// 효과음 재생
+        /// </summary>
+        public void PlaySFX(string name)
         {
-            audioMixer.SetFloat("MasterVolume", Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20);
+            if (sfxDict.TryGetValue(name, out var clip))
+                sfxSource.PlayOneShot(clip);
+            else
+                Debug.LogWarning($"[AudioManager] SFX '{name}' not found.");
         }
 
-        public void SetBGMVolume(float value)
+        /// <summary>
+        /// AudioClip 직접 재생 (스킬 등에서 사용)
+        /// </summary>
+        public void PlaySFX(AudioClip clip)
         {
-            audioMixer.SetFloat("BGMVolume", Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20);
+            if (clip != null)
+                sfxSource.PlayOneShot(clip);
         }
 
-        public void SetSFXVolume(float value)
+        /// <summary>
+        /// UI 클릭음 재생
+        /// </summary>
+        public void PlayUI(string name)
         {
-            audioMixer.SetFloat("SFXVolume", Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20);
+            if (uiDict.TryGetValue(name, out var clip))
+                uiSource.PlayOneShot(clip);
+            else
+                Debug.LogWarning($"[AudioManager] UI SFX '{name}' not found.");
         }
 
-        //AudioMixer 볼륨 가져오기
-        public float GetVolume(string exposedParam)
+        // === 볼륨 설정 ===
+
+        public void SetMasterVolume(float value) => SetVolume("MasterVolume", value);
+        public void SetBGMVolume(float value) => SetVolume("BGMVolume", value);
+        public void SetSFXVolume(float value) => SetVolume("SFXVolume", value);
+        public void SetUIVolume(float value) => SetVolume("UIVolume", value);
+
+        private void SetVolume(string key, float value)
         {
-            if (audioMixer.GetFloat(exposedParam, out float dB))
-                return Mathf.Pow(10, dB / 20f);
-            return 1f; // 기본값 1
+            float dB = Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20f;
+            audioMixer.SetFloat(key, dB);
+            PlayerPrefs.SetFloat(key, value);
         }
 
+        public float GetVolume(string key)
+        {
+            return PlayerPrefs.GetFloat(key, 1f);
+        }
+
+        /// <summary>
+        /// 게임 시작 시 저장된 볼륨 값 불러오기
+        /// </summary>
+        private void LoadVolumes()
+        {
+            SetMasterVolume(GetVolume("MasterVolume"));
+            SetBGMVolume(GetVolume("BGMVolume"));
+            SetSFXVolume(GetVolume("SFXVolume"));
+            SetUIVolume(GetVolume("UIVolume"));
+        }
+
+        /// <summary>
+        /// Inspector에서 사운드 등록용
+        /// </summary>
         [System.Serializable]
         public class SoundEntry
         {
