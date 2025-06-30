@@ -17,6 +17,8 @@ namespace Main.Scripts.Enemy.Boss
         private float maxHP;
         private float lastHPPercentage = 1f;
 
+        private bool isActivated = false;
+
         protected override void Start()
         {
             base.Start();
@@ -68,6 +70,23 @@ namespace Main.Scripts.Enemy.Boss
         {
             var hpField = typeof(EnemyController).GetField("currentHP", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             return hpField != null ? (float)hpField.GetValue(this) : 0f;
+        }
+
+        /// <summary>
+        /// 컷신 이후 호출되어 보스 전투를 시작합니다.
+        /// </summary>
+        public void Activate()
+        {
+            if (isActivated) return;
+            isActivated = true;
+
+            if (patternManager != null)
+                patternManager.enabled = true;
+
+            // 선택: 시작 애니메이션 트리거
+            var anim = GetComponent<Animator>();
+            if (anim != null)
+                anim.SetTrigger("StartBattle");
         }
     }
 }

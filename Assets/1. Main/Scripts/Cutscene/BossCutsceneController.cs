@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using Main.Scripts.Core;
+using Main.Scripts.Enemy.Boss;
 
 namespace Main.Scripts.Cutscene
 {
@@ -35,6 +37,23 @@ namespace Main.Scripts.Cutscene
 
             // 공통 컷신 루틴 실행 (암전, Timeline, BGM 등)
             yield return PlayCutscene(bossBGM);
+        }
+
+        /// <summary>
+        /// Timeline 중 Signal로 호출되는 전투 시작 메서드입니다.
+        /// 보스 AI를 활성화합니다.
+        /// </summary>
+        public void StartBattle()
+        {
+            if (bossObject != null)
+            {
+                BossController boss = bossObject.GetComponent<BossController>();
+                if (boss != null)
+                    boss.Activate();
+            }
+
+            // (선택) 컷신 후 HUD 복구가 지연되었을 경우 다시 표시
+            GameManager.Instance.UIManager.ShowHUD();
         }
     }
 }
