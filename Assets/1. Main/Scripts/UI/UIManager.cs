@@ -97,7 +97,6 @@ namespace Main.Scripts.UI
             isSellMode = false;
         }
 
-
         public void NotifyQuestUpdate(QuestEventType type, QuestData quest)
         {
             string msg = type switch
@@ -124,6 +123,24 @@ namespace Main.Scripts.UI
 
             // UI에 반영
             questJournalPanel.Refresh(questList);
+        }
+
+        /// <summary>
+        /// HUD 전체를 숨깁니다. (보스 컷신 등 연출용)
+        /// </summary>
+        public void HideHUD()
+        {
+            if (hudView != null)
+                hudView.gameObject.SetActive(false);
+        }
+
+        /// <summary>
+        /// HUD 전체를 다시 보여줍니다. (컷신 종료 후 복구용)
+        /// </summary>
+        public void ShowHUD()
+        {
+            if (hudView != null)
+                hudView.gameObject.SetActive(true);
         }
 
         public void UpdateHP(float ratio) => hudView.UpdateHP(ratio);
