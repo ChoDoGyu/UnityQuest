@@ -12,12 +12,17 @@ namespace Main.Scripts.UI
 {
     public class UIManager : MonoBehaviour
     {
+        /// <summary>
+        /// 게임 내 UI 요소 전체를 관리하는 매니저입니다.
+        /// PauseMenu, GameOverMenu, HUD 등 주요 UI의 표시/숨김과 값을 갱신합니다.
+        /// </summary>
         public static UIManager Instance { get; private set; }
 
         [Header("UI Views")]
         [SerializeField] private HUDView hudView;
         [SerializeField] private DebugConsoleView debugConsoleView;
         [SerializeField] private GameObject pauseMenuUI;
+        [SerializeField] private GameObject gameOverMenuUI;
         [SerializeField] private OptionManager optionManager;
         [SerializeField] private GameObject optionMenuUI;
         [SerializeField] private TooltipManager tooltipManager;
@@ -33,8 +38,7 @@ namespace Main.Scripts.UI
         private PlayerInputActions inputActions;
         private bool isInventoryOpen = false;
 
-        public bool isSellMode = false; // 현재 판매 모드 여부
-
+        public bool isSellMode = false;
         public OptionManager Option => optionManager;
         public TooltipManager Tooltip => tooltipManager;
 
@@ -47,7 +51,6 @@ namespace Main.Scripts.UI
             }
 
             Instance = this;
-
             inputActions = new PlayerInputActions();
         }
 
@@ -145,6 +148,7 @@ namespace Main.Scripts.UI
 
         public void UpdateHP(float ratio) => hudView.UpdateHP(ratio);
         public void UpdateStamina(float ratio) => hudView.UpdateStamina(ratio);
+        //public void UpdateExp(float ratio) => hudView.UpdateExp(ratio);
         public void ToggleConsole() => debugConsoleView.ToggleConsole();
         public void Log(string msg) => debugConsoleView.Log(msg);
 
@@ -155,6 +159,8 @@ namespace Main.Scripts.UI
         //일시정지 UI 제어용 메서드
         public void ShowPauseMenu() => pauseMenuUI?.SetActive(true);
         public void HidePauseMenu() => pauseMenuUI?.SetActive(false);
+
+        public void ShowGameOverMenu() => gameOverMenuUI?.SetActive(true);
 
         //스킬 UI 초기화 전달
         public void InitializeSkillUI(List<SkillData> skills, Action<SkillData> onUse, SkillManager skillManager)

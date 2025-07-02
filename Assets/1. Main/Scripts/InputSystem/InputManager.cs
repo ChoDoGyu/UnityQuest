@@ -3,56 +3,27 @@ using UnityEngine.InputSystem;
 
 namespace Main.Scripts.InputSystem
 {
+    /// <summary>
+    /// 입력 활성화 여부를 제어합니다. 일시정지 상태에서 입력을 막기 위해 사용됩니다.
+    /// </summary>
     public class InputManager : MonoBehaviour
     {
-        public static InputManager Instance { get; private set; }
-
-        private PlayerInputActions inputActions;
-
-        public Vector2 MoveInput { get; private set; }
-
         private bool isPaused = false;
 
-        private void Awake()
+        /// <summary>
+        /// 일시정지 상태 설정
+        /// </summary>
+        public void SetPaused(bool pause)
         {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-
-            inputActions = new PlayerInputActions();
-            inputActions.Enable();
-
-            BindInputEvents();
+            isPaused = pause;
         }
 
-        public void SetPaused(bool paused)
+        /// <summary>
+        /// 현재 입력이 허용되는 상태인지 반환
+        /// </summary>
+        public bool IsInputEnabled()
         {
-            isPaused = paused;
-            // 필요 시 여기서 추가적인 입력 비활성화 처리도 가능
-        }
-
-        private void BindInputEvents()
-        {
-            inputActions.Player.Move.performed += ctx =>
-            {
-                if (!isPaused)
-                    MoveInput = ctx.ReadValue<Vector2>();
-            };
-            inputActions.Player.Move.canceled += ctx =>
-            {
-                if (!isPaused)
-                    MoveInput = Vector2.zero;
-            };
-        }
-
-        private void OnDestroy()
-        {
-            inputActions?.Dispose();
+            return !isPaused;
         }
     }
 }

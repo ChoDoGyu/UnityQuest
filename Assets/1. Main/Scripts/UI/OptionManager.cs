@@ -57,24 +57,34 @@ namespace Main.Scripts.UI
         //슬라이더 초기값 설정
         private void SetupAudioSliders()
         {
-            masterSlider.value = AudioManager.Instance.GetVolume("MasterVolume");
-            bgmSlider.value = AudioManager.Instance.GetVolume("BGMVolume");
-            sfxSlider.value = AudioManager.Instance.GetVolume("SFXVolume");
-            uiSlider.value = AudioManager.Instance.GetVolume("UIVolume");
+            masterSlider.SetValueWithoutNotify(AudioManager.Instance.GetVolume("MasterVolume") * 100f);
+            bgmSlider.SetValueWithoutNotify(AudioManager.Instance.GetVolume("BGMVolume") * 100f);
+            sfxSlider.SetValueWithoutNotify(AudioManager.Instance.GetVolume("SFXVolume") * 100f);
+            uiSlider.SetValueWithoutNotify(AudioManager.Instance.GetVolume("UIVolume") * 100f);
         }
 
         //슬라이더가 바뀌었을 때
         public void SetMasterVolume(float value)
         {
-            AudioManager.Instance.SetMasterVolume(value);
+            float normalizedValue = value / 100f; // 0 ~ 1
+            Debug.Log($"[Option] Master Volume: {value}");
+            AudioManager.Instance?.SetVolume("MasterVolume", normalizedValue);
         }
         public void SetBGMVolume(float value)
         {
-            AudioManager.Instance.SetBGMVolume(value);
+            float normalizedValue = value / 100f;
+            AudioManager.Instance?.SetVolume("BGMVolume", normalizedValue);
         }
         public void SetSFXVolume(float value)
         {
-            AudioManager.Instance.SetSFXVolume(value);
+            float normalizedValue = value / 100f;
+            AudioManager.Instance?.SetVolume("SFXVolume", normalizedValue);
+        }
+
+        public void SetUIVolume(float value)
+        {
+            float normalizedValue = value / 100f;
+            AudioManager.Instance?.SetVolume("UIVolume", normalizedValue);
         }
 
         //해상도 설정

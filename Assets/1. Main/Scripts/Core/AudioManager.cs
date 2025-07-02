@@ -125,11 +125,16 @@ namespace Main.Scripts.Core
         public void SetSFXVolume(float value) => SetVolume("SFXVolume", value);
         public void SetUIVolume(float value) => SetVolume("UIVolume", value);
 
-        private void SetVolume(string key, float value)
+        public void SetVolume(string parameterName, float volume)
         {
-            float dB = Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20f;
-            audioMixer.SetFloat(key, dB);
-            PlayerPrefs.SetFloat(key, value);
+            // 0~1 → dB 변환
+            float dB = Mathf.Lerp(-80f, 0f, volume); // volume: 0~1
+            audioMixer.SetFloat(parameterName, dB);
+
+            //Debug.Log($"[AudioManager] Set '{parameterName}' Volume: {volume:0.000} → {dB:0.0} dB");
+
+            // PlayerPrefs 저장
+            PlayerPrefs.SetFloat(parameterName, volume);
         }
 
         public float GetVolume(string key)
