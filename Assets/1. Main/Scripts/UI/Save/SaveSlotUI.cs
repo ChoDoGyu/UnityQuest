@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using Main.Scripts.Data;
 
 namespace Main.Scripts.UI.Save
 {
@@ -21,27 +22,17 @@ namespace Main.Scripts.UI.Save
         /// <summary>
         /// 슬롯 UI에 표시할 정보 설정
         /// </summary>
-        public void SetData(int index, string title, string saveTime, Texture preview, Action<int> onDelete, Action<int> onSelect)
+        public void SetData(SaveSlotData data, Action<SaveSlotData> onSelect, Action<SaveSlotData> onDelete)
         {
-            slotIndex = index;
-            slotTitleText.text = title;
-            saveTimeText.text = saveTime;
-            previewImage.texture = preview;
-            onDeleteClicked = onDelete;
-            onSelectClicked = onSelect;
-        }
+            slotTitleText.text = data.title;
+            saveTimeText.text = data.saveTime;
+            previewImage.texture = data.previewTexture;
 
-        private void Awake()
-        {
-            deleteButton.onClick.AddListener(() =>
-            {
-                onDeleteClicked?.Invoke(slotIndex);
-            });
+            selectButton.onClick.RemoveAllListeners();
+            deleteButton.onClick.RemoveAllListeners();
 
-            selectButton.onClick.AddListener(() =>
-            {
-                onSelectClicked?.Invoke(slotIndex);
-            });
+            selectButton.onClick.AddListener(() => onSelect?.Invoke(data));
+            deleteButton.onClick.AddListener(() => onDelete?.Invoke(data));
         }
     }
 }
