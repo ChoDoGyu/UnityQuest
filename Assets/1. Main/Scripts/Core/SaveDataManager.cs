@@ -1,9 +1,10 @@
-using UnityEngine;
-using System.Collections.Generic;
-using System.IO;
 using System;
-using Main.Scripts.Data;
+using System.IO;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using Main.Scripts.Data;
 using Main.Scripts.Player;
 
 namespace Main.Scripts.Core
@@ -53,15 +54,17 @@ namespace Main.Scripts.Core
 
         public void SaveGame(SaveSlotType type)
         {
-            var data = new SaveData();
+            StartCoroutine(SaveGameCoroutine(type));
+        }
 
-            // 저장 ID 설정
+        public IEnumerator SaveGameCoroutine(SaveSlotType type)
+        {
+            var data = new SaveData();
             string saveId = (type == SaveSlotType.Auto) ? "Auto_0" : GetNextManualSlotId();
             data.saveId = saveId;
             data.saveTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             data.currentScene = SceneManager.GetActiveScene().name;
 
-            // 플레이어 위치 저장
             var player = GameObject.FindWithTag("Player");
             if (player != null)
             {
@@ -69,37 +72,53 @@ namespace Main.Scripts.Core
 
                 var status = player.GetComponent<PlayerStat>();
                 if (status != null)
-                {
                     data.playerHp = status.GetStat(StatType.HP);
-                }
                 else
-                {
                     Debug.LogWarning("[Save] PlayerStatus 컴포넌트가 없습니다.");
-                }
             }
             else
             {
                 Debug.LogWarning("[Save] 태그가 'Player'인 오브젝트를 찾을 수 없습니다.");
             }
 
-            //Preview 폴더 경로 생성
-            string previewDir = Path.Combine(SaveDir, "Preview");
-            if (!Directory.Exists(previewDir))
-                Directory.CreateDirectory(previewDir);
+            //EndOfFrame 이후 캡처 → 렌더링 오류 방지
+            bool imageSaved = false;
+            yield return StartCoroutine(CaptureScreenshotCoroutine(tex =>
+            {
+                string previewDir = Path.Combine(SaveDir, "Preview");
+                if (!Directory.Exists(previewDir))
+                    Directory.CreateDirectory(previewDir);
 
-            //이미지 캡처 및 저장
-            Texture2D preview = CaptureScreenshot();
-            string previewPath = Path.Combine(previewDir, saveId + ".png");
-            File.WriteAllBytes(previewPath, preview.EncodeToPNG());
-            data.previewImagePath = previewPath;
+                string previewPath = Path.Combine(previewDir, saveId + ".png");
+                File.WriteAllBytes(previewPath, tex.EncodeToPNG());
+                data.previewImagePath = previewPath;
 
-            // JSON 저장
+                imageSaved = true;
+            }));
+
+            while (!imageSaved) yield return null;
+
             string json = JsonUtility.ToJson(data, true);
             string encoded = Encode(json);
             string filePath = Path.Combine(SaveDir, saveId + ".json");
             File.WriteAllText(filePath, encoded);
 
             Debug.Log($"[저장 완료] {saveId} → {filePath}");
+        }
+
+
+        //ReadPixels 오류 해결용 캡처 코루틴
+        private IEnumerator CaptureScreenshotCoroutine(Action<Texture2D> callback)
+        {
+            yield return new WaitForEndOfFrame();
+
+            int width = Screen.width;
+            int height = Screen.height;
+            Texture2D tex = new Texture2D(width, height, TextureFormat.RGB24, false);
+            tex.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+            tex.Apply();
+
+            callback?.Invoke(tex);
         }
 
         public void LoadGame(string saveFileName)
@@ -244,18 +263,6 @@ namespace Main.Scripts.Core
 
             SceneManager.sceneLoaded -= OnSceneLoaded;
             pendingLoadData = null;
-        }
-
-        private Texture2D CaptureScreenshot()
-        {
-            int width = Screen.width;
-            int height = Screen.height;
-            Texture2D tex = new Texture2D(width, height, TextureFormat.RGB24, false);
-
-            tex.ReadPixels(new Rect(0, 0, width, height), 0, 0);
-            tex.Apply();
-
-            return tex;
         }
 
         private string Encode(string plainText)

@@ -4,6 +4,7 @@ using Main.Scripts.InputSystem;
 using Main.Scripts.SceneManagement;
 using Main.Scripts.UI;
 using Main.Scripts.Player;
+using System.Collections;
 
 namespace Main.Scripts.Core
 {
@@ -33,6 +34,7 @@ namespace Main.Scripts.Core
         private MapManager mapManager;
         private PauseManager pauseManager;
         private InputManager inputManager;
+        private SaveDataManager saveDataManager;
 
         [Header("상태 관리")]
         private GameState currentState = GameState.Playing;
@@ -44,6 +46,7 @@ namespace Main.Scripts.Core
         public UIManager UIManager => uiManager;
         public QuestManager QuestManager => questManager;
         public MapManager MapManager => mapManager;
+        public SaveDataManager SaveDataManager => saveDataManager;
 
 
         private void Awake()
@@ -60,12 +63,22 @@ namespace Main.Scripts.Core
             // 씬 로더 강제 생성
             if (FindObjectOfType<SceneLoader>() == null)
                 gameObject.AddComponent<SceneLoader>();
+
+            saveDataManager = FindObjectOfType<SaveDataManager>();
         }
 
         private void Start()
         {
-            InitializeManagers();
-            SetupSkillUI();
+            StartCoroutine(SetupAfterPlayerSpawned());
+        }
+
+        private IEnumerator SetupAfterPlayerSpawned()
+        {
+            // PlayerManager가 생성될 때까지 대기
+            yield return new WaitUntil(() => FindObjectOfType<PlayerManager>() != null);
+
+            InitializeManagers();       // 기존 Start() 내용
+            SetupSkillUI();             // 스킬 UI 초기화
 
             if (mapManager != null && playerManager != null)
             {
@@ -87,6 +100,7 @@ namespace Main.Scripts.Core
             inputManager = FindObjectOfType<InputManager>();
             audioManager = FindObjectOfType<AudioManager>();
             fxManager = FindObjectOfType<FXManager>();
+            
         }
 
         public void SetupSkillUI()
